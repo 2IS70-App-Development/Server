@@ -43,6 +43,13 @@ func logsMiddleware(next http.Handler) http.Handler {
 func main() {
 	port := envOr("PORT", "8080")
 	allowedOrigin := envOr("ALLOWED_ORIGIN", "http://localhost:3000")
+	dbPath := envOr("DB_PATH", "./database.db")
+	schemaPath := envOr("SCHEMA_PATH", "./schema.sql")
+
+	_, err := NewApp(dbPath, schemaPath)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	mux := http.NewServeMux()
 
