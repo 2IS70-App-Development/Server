@@ -3,8 +3,9 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	_ "github.com/mattn/go-sqlite3"
 	"os"
+
+	_ "github.com/mattn/go-sqlite3"
 )
 
 type App struct {
@@ -21,9 +22,7 @@ func NewApp(dbPath string, schemaPath string) (*App, error) {
 		return nil, fmt.Errorf("create tables: %w", err)
 	}
 
-	return &App{
-		db: db,
-	}, nil
+	return &App{db: db}, nil
 }
 
 func createTablesFromSchema(db *sql.DB, schemaPath string) error {

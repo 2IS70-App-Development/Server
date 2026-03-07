@@ -46,7 +46,7 @@ func main() {
 	dbPath := envOr("DB_PATH", "./database.db")
 	schemaPath := envOr("SCHEMA_PATH", "./schema.sql")
 
-	_, err := NewApp(dbPath, schemaPath)
+	app, err := NewApp(dbPath, schemaPath)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -56,6 +56,8 @@ func main() {
 	mux.HandleFunc("/api/health", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 	})
+	mux.HandleFunc("/api/users", app.getUsersList)
+	mux.HandleFunc("/api/users/id", app.getUserDetail)
 
 	fmt.Printf("Server starting on port %s...\n", port)
 
