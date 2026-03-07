@@ -43,12 +43,21 @@ func logsMiddleware(next http.Handler) http.Handler {
 func main() {
 	port := envOr("PORT", "8080")
 	allowedOrigin := envOr("ALLOWED_ORIGIN", "http://localhost:3000")
+	dbPath := envOr("DB_PATH", "./database.db")
+	schemaPath := envOr("SCHEMA_PATH", "./schema.sql")
+
+	app, err := NewApp(dbPath, schemaPath)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/api/health", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 	})
+	mux.HandleFunc("/api/users", app.getUsersList)
+	mux.HandleFunc("/api/users/id", app.getUserDetail)
 
 	fmt.Printf("Server starting on port %s...\n", port)
 
