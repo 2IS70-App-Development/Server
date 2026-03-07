@@ -5,6 +5,7 @@ Server implementation using Go for course App Development (2IS70).
 ## Tech Stack
 
 - Go with `net/http`
+- SQLite via `mattn/go-sqlite3`
 
 ## Getting Started
 
