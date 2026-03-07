@@ -24,15 +24,24 @@ The dev server by default starts on port `8080`.
 
 ### API Endpoints
 
-| Methods | Path        | Description         |
-| ------- | ----------- | ------------------- |
-| GET     | /api/health | Check server health |
+| Methods | Path               | Description         |
+| ------- | ------------------ | ------------------- |
+| GET     | /api/health        | Check server health |
+| GET     | /api/users         | Get users           |
+| GET     | /api/users/details | Get user details    |
 
 ### Project Structure
 
 ```bash
-├── main.go                 # HTTP server, routes, CORS + Logs middleware
-├── .env.example            # .env example file
+├── main.go                     # HTTP server, routes, CORS + Logs middleware
+├── views.go                    # User handlers
+├── models.go                   # User model
+├── services.go                 # User services
+├── db.go                       # SQLite database connection
+├── schema.sql                  # Database schema
+├── .env.example                # .env example file
 ├── .gitignore
+├── go.mod
+├── go.sum
 └── README.md
 ```

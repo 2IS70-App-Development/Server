@@ -26,7 +26,7 @@ func (a *App) getUsersList(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, *users)
 }
 
-func (a *App) getUserDetail(w http.ResponseWriter, r *http.Request) {
+func (a *App) getUserDetails(w http.ResponseWriter, r *http.Request) {
 	username := r.URL.Query().Get("username")
 
 	user, err := a.getUser(username)

@@ -57,7 +57,7 @@ func main() {
 		w.WriteHeader(http.StatusOK)
 	})
 	mux.HandleFunc("/api/users", app.getUsersList)
-	mux.HandleFunc("/api/users/id", app.getUserDetail)
+	mux.HandleFunc("/api/users/details", app.getUserDetails)
 
 	fmt.Printf("Server starting on port %s...\n", port)
 
