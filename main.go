@@ -58,6 +58,7 @@ func main() {
 	})
 	mux.HandleFunc("/api/users", app.getUsersList)
 	mux.HandleFunc("/api/users/details", app.getUserDetails)
+	mux.HandleFunc("/api/signup", app.signup)
 
 	fmt.Printf("Server starting on port %s...\n", port)
 
