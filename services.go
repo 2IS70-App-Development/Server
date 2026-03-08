@@ -2,11 +2,16 @@ package main
 
 import (
 	"fmt"
+	"strconv"
+	"time"
+
+	"github.com/golang-jwt/jwt/v5"
+	"golang.org/x/crypto/bcrypt"
 )
 
 func (a *App) getUsers() (*[]User, error) {
 	var users []User
-	rows, err := a.db.Query("SELECT id, username FROM users")
+	rows, err := a.db.Query("SELECT id, email, created_at FROM users")
 	if err != nil {
 		return nil, err
 	}
@@ -14,10 +19,9 @@ func (a *App) getUsers() (*[]User, error) {
 
 	for rows.Next() {
 		var user User
-		if err := rows.Scan(&user.ID, &user.Username); err != nil {
+		if err := rows.Scan(&user.ID, &user.Email, &user.CreatedAt); err != nil {
 			return nil, err
 		}
-		fmt.Printf("id: %d username: %s\n", user.ID, user.Username)
 		users = append(users, user)
 	}
 
@@ -28,11 +32,53 @@ func (a *App) getUsers() (*[]User, error) {
 	return &users, nil
 }
 
-func (a *App) getUser(username string) (*User, error) {
+func (a *App) getUser(email string) (*User, error) {
 	var user User
-	err := a.db.QueryRow("SELECT id, username FROM users WHERE username = ?", username).Scan(&user.ID, &user.Username)
+	err := a.db.QueryRow("SELECT id, email, password_hash, created_at FROM users WHERE email = ?", email).Scan(&user.ID, &user.Email, &user.PasswordHash, &user.CreatedAt)
 	if err != nil {
 		return nil, err
 	}
 	return &user, nil
+}
+
+func (a *App) createUser(email string, password string) (*User, error) {
+	hash, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+	if err != nil {
+		return nil, err
+	}
+
+	res, err := a.db.Exec("INSERT INTO users (email, password_hash) VALUES(?, ?)", email, string(hash))
+	if err != nil {
+		return nil, err
+	}
+
+	id, _ := res.LastInsertId()
+	createdAt := time.Now()
+
+	return &User{
+		ID:        int(id),
+		Email:     email,
+		CreatedAt: createdAt,
+	}, nil
+}
+
+func (a *App) jwtCreateService(user *User, password string) (string, error) {
+	if err := bcrypt.CompareHashAndPassword([]byte(user.PasswordHash), []byte(password)); err != nil {
+		return "", fmt.Errorf("invalid credentials")
+	}
+
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, &jwt.RegisteredClaims{
+		ExpiresAt: jwt.NewNumericDate(time.Now().Add(24 * time.Hour)),
+		IssuedAt:  jwt.NewNumericDate(time.Now()),
+		NotBefore: jwt.NewNumericDate(time.Now()),
+		Issuer:    "oath",
+		Subject:   strconv.Itoa(user.ID),
+	})
+	ss, err := token.SignedString(a.jwtSecret)
+
+	if err != nil {
+		return "", err
+	}
+
+	return ss, nil
 }
