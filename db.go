@@ -9,10 +9,11 @@ import (
 )
 
 type App struct {
-	db *sql.DB
+	db        *sql.DB
+	jwtSecret []byte
 }
 
-func NewApp(dbPath string, schemaPath string) (*App, error) {
+func NewApp(dbPath string, schemaPath string, jwtSecret string) (*App, error) {
 	db, err := sql.Open("sqlite3", dbPath)
 	if err != nil {
 		return nil, fmt.Errorf("open database: %w", err)
@@ -22,7 +23,7 @@ func NewApp(dbPath string, schemaPath string) (*App, error) {
 		return nil, fmt.Errorf("create tables: %w", err)
 	}
 
-	return &App{db: db}, nil
+	return &App{db: db, jwtSecret: []byte(jwtSecret)}, nil
 }
 
 func createTablesFromSchema(db *sql.DB, schemaPath string) error {

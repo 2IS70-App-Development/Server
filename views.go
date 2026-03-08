@@ -75,3 +75,39 @@ func (a *App) signup(w http.ResponseWriter, r *http.Request) {
 
 	jsonResponse(w, *user)
 }
+
+func (a *App) jwtCreate(w http.ResponseWriter, r *http.Request) {
+	if r.Method != "POST" {
+		jsonError(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	var req struct {
+		Email    string `json:"email"`
+		Password string `json:"password"`
+	}
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		jsonError(w, "Invalid request body", http.StatusBadRequest)
+		return
+	}
+
+	user, err := a.getUser(req.Email)
+	if err != nil {
+		log.Printf(err.Error())
+		jsonError(w, err.Error(), http.StatusOK)
+		return
+	}
+
+	accessToken, err := a.jwtCreateService(user, req.Password)
+	if err != nil {
+		log.Printf(err.Error())
+		jsonError(w, err.Error(), http.StatusOK)
+		return
+	}
+
+	log.Printf(accessToken)
+
+	jsonResponse(w, map[string]string{
+		"access_token": accessToken,
+	})
+}

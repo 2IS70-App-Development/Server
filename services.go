@@ -1,8 +1,11 @@
 package main
 
 import (
+	"fmt"
+	"strconv"
 	"time"
 
+	"github.com/golang-jwt/jwt/v5"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -31,7 +34,7 @@ func (a *App) getUsers() (*[]User, error) {
 
 func (a *App) getUser(email string) (*User, error) {
 	var user User
-	err := a.db.QueryRow("SELECT id, email, created_at FROM users WHERE username = ?", email).Scan(&user.ID, &user.Email, &user.CreatedAt)
+	err := a.db.QueryRow("SELECT id, email, password_hash, created_at FROM users WHERE email = ?", email).Scan(&user.ID, &user.Email, &user.PasswordHash, &user.CreatedAt)
 	if err != nil {
 		return nil, err
 	}
@@ -57,4 +60,25 @@ func (a *App) createUser(email string, password string) (*User, error) {
 		Email:     email,
 		CreatedAt: createdAt,
 	}, nil
+}
+
+func (a *App) jwtCreateService(user *User, password string) (string, error) {
+	if err := bcrypt.CompareHashAndPassword([]byte(user.PasswordHash), []byte(password)); err != nil {
+		return "", fmt.Errorf("invalid credentials")
+	}
+
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, &jwt.RegisteredClaims{
+		ExpiresAt: jwt.NewNumericDate(time.Now().Add(24 * time.Hour)),
+		IssuedAt:  jwt.NewNumericDate(time.Now()),
+		NotBefore: jwt.NewNumericDate(time.Now()),
+		Issuer:    "oath",
+		Subject:   strconv.Itoa(user.ID),
+	})
+	ss, err := token.SignedString(a.jwtSecret)
+
+	if err != nil {
+		return "", err
+	}
+
+	return ss, nil
 }
