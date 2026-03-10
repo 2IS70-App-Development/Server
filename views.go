@@ -40,6 +40,28 @@ func (a *App) getUserDetails(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, *user)
 }
 
+func (a *App) getOrdersList(w http.ResponseWriter, r *http.Request) {
+	users, err := a.getOrders()
+	if err != nil {
+		jsonError(w, "Failed to fetch orders", http.StatusInternalServerError)
+		return
+	}
+
+	jsonResponse(w, *users)
+}
+
+func (a *App) getOrderDetails(w http.ResponseWriter, r *http.Request) {
+	id := r.URL.Query().Get("id")
+
+	order, err := a.getOrder(id)
+	if err != nil {
+		jsonError(w, "Order not found", http.StatusBadRequest)
+		return
+	}
+
+	jsonResponse(w, *order)
+}
+
 func (a *App) signup(w http.ResponseWriter, r *http.Request) {
 	var req struct {
 		Email    string `json:"email"`

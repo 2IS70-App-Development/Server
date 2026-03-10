@@ -56,6 +56,38 @@ func (a *App) createUser(email string, password string) (*User, error) {
 	return &newUser, nil
 }
 
+func (a *App) getOrders() (*[]Order, error) {
+	var orders []Order
+	rows, err := a.db.Query("SELECT id, sender_id, receiver_id, name, meta, comment, created_at created_at FROM orders")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var order Order
+		if err := rows.Scan(&order.ID, &order.SenderId, &order.ReceiverId, &order.Name, &order.Meta, &order.Comment, &order.CreatedAt); err != nil {
+			return nil, err
+		}
+		orders = append(orders, order)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return &orders, nil
+}
+
+func (a *App) getOrder(id string) (*Order, error) {
+	var order Order
+	err := a.db.QueryRow("SELECT id, sender_id, receiver_id, name, meta, comment, created_at created_at FROM orders WHERE id = ?", id).Scan(&order.ID, &order.SenderId, &order.ReceiverId, &order.Name, &order.Meta, &order.Comment, &order.CreatedAt)
+	if err != nil {
+		return nil, err
+	}
+	return &order, nil
+}
+
 func (a *App) jwtCreateService(user *User, password string) (string, error) {
 	if err := bcrypt.CompareHashAndPassword([]byte(user.PasswordHash), []byte(password)); err != nil {
 		return "", fmt.Errorf("invalid credentials")

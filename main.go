@@ -79,6 +79,8 @@ func main() {
 	})
 	mux.Handle("GET /auth/users", http.HandlerFunc(app.getUsersList))
 	mux.Handle("GET /auth/users/details", http.HandlerFunc(app.getUserDetails))
+	mux.Handle("GET /auth/orders", http.HandlerFunc(app.getOrdersList))
+	mux.Handle("GET /auth/orders/details", http.HandlerFunc(app.getOrderDetails))
 	mux.HandleFunc("POST /signup", app.signup)
 	mux.HandleFunc("POST /jwt/create", app.jwtCreate)
 
