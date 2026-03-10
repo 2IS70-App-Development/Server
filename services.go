@@ -47,19 +47,13 @@ func (a *App) createUser(email string, password string) (*User, error) {
 		return nil, err
 	}
 
-	res, err := a.db.Exec("INSERT INTO users (email, password_hash) VALUES(?, ?)", email, string(hash))
+	var newUser User
+	err = a.db.QueryRow("INSERT INTO users (email, password_hash) VALUES(?, ?) RETURNING id, email, created_at", email, string(hash)).Scan(&newUser.ID, &newUser.Email, &newUser.CreatedAt)
 	if err != nil {
 		return nil, err
 	}
 
-	id, _ := res.LastInsertId()
-	createdAt := time.Now()
-
-	return &User{
-		ID:        int(id),
-		Email:     email,
-		CreatedAt: createdAt,
-	}, nil
+	return &newUser, nil
 }
 
 func (a *App) jwtCreateService(user *User, password string) (string, error) {
