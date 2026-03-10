@@ -20,23 +20,6 @@ func envOr(key, fallback string) string {
 	return fallback
 }
 
-// corsMiddleware wraps a handler and applies CORS headers to every response,
-// including preflight OPTIONS requests.
-func corsMiddleware(allowedOrigin string, next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin", allowedOrigin)
-		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
-
-		if r.Method == "OPTIONS" {
-			w.WriteHeader(http.StatusOK)
-			return
-		}
-
-		next.ServeHTTP(w, r)
-	})
-}
-
 // logsMiddleware wraps a handler and logs incoming requests
 func logsMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -49,6 +32,11 @@ func logsMiddleware(next http.Handler) http.Handler {
 // authMiddleware wraps a handler and verifies jwt
 func authMiddleware(next http.Handler, jwtSecret string) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if !strings.HasPrefix(strings.TrimPrefix(r.URL.Path, "/"), "auth/") {
+			next.ServeHTTP(w, r)
+			return
+		}
+
 		accessToken := strings.TrimPrefix(r.Header.Get("Authorization"), "Bearer ")
 
 		log.Printf("%s", accessToken)
@@ -74,8 +62,7 @@ func authMiddleware(next http.Handler, jwtSecret string) http.Handler {
 
 func main() {
 	port := envOr("PORT", "8080")
-	allowedOrigin := envOr("ALLOWED_ORIGIN", "http://localhost:3000")
-	dbPath := envOr("DB_PATH", "./database.db")
+	dbPath := envOr("DB_PATH", "./database.db?_foreign_keys=on&_busy_timeout=5000&_journal_mode=WAL")
 	schemaPath := envOr("SCHEMA_PATH", "./schema.sql")
 	jwtSecret := envOr("JWT_SECRET", "change-me-in-production")
 
@@ -83,22 +70,23 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer app.db.Close()
 
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/api/health", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 	})
-	mux.Handle("/api/users", authMiddleware(http.HandlerFunc(app.getUsersList), jwtSecret))
-	mux.Handle("/api/users/details", authMiddleware(http.HandlerFunc(app.getUserDetails), jwtSecret))
-	mux.HandleFunc("/api/signup", app.signup)
-	mux.HandleFunc("/api/jwt/create", app.jwtCreate)
+	mux.Handle("/auth/users", http.HandlerFunc(app.getUsersList))
+	mux.Handle("/auth/users/details", http.HandlerFunc(app.getUserDetails))
+	mux.HandleFunc("/signup", app.signup)
+	mux.HandleFunc("/jwt/create", app.jwtCreate)
 
 	fmt.Printf("Server starting on port %s...\n", port)
 
 	srv := &http.Server{
 		Addr:    ":8080",
-		Handler: logsMiddleware(corsMiddleware(allowedOrigin, mux)),
+		Handler: authMiddleware(logsMiddleware(mux), jwtSecret),
 	}
 	go func() {
 		err := srv.ListenAndServe()
