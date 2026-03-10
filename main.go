@@ -85,7 +85,7 @@ func main() {
 	fmt.Printf("Server starting on port %s...\n", port)
 
 	srv := &http.Server{
-		Addr:    ":8080",
+		Addr:    ":"+port,
 		Handler: authMiddleware(logsMiddleware(mux), jwtSecret),
 	}
 	go func() {
