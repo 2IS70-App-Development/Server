@@ -9,9 +9,9 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-func (a *App) getUsers() (*[]User, error) {
+func GetUsers() (*[]User, error) {
 	var users []User
-	rows, err := a.db.Query("SELECT id, email, created_at FROM users")
+	rows, err := Db.Query("SELECT id, email, created_at FROM users")
 	if err != nil {
 		return nil, err
 	}
@@ -32,23 +32,32 @@ func (a *App) getUsers() (*[]User, error) {
 	return &users, nil
 }
 
-func (a *App) getUser(email string) (*User, error) {
+func GetUser(id string) (*User, error) {
 	var user User
-	err := a.db.QueryRow("SELECT id, email, password_hash, created_at FROM users WHERE email = ?", email).Scan(&user.ID, &user.Email, &user.PasswordHash, &user.CreatedAt)
+	err := Db.QueryRow("SELECT id, email, password_hash, created_at FROM users WHERE id = ?", id).Scan(&user.ID, &user.Email, &user.PasswordHash, &user.CreatedAt)
 	if err != nil {
 		return nil, err
 	}
 	return &user, nil
 }
 
-func (a *App) createUser(email string, password string) (*User, error) {
+func GetUserByEmail(email string) (*User, error) {
+	var user User
+	err := Db.QueryRow("SELECT id, email, password_hash, created_at FROM users WHERE email = ?", email).Scan(&user.ID, &user.Email, &user.PasswordHash, &user.CreatedAt)
+	if err != nil {
+		return nil, err
+	}
+	return &user, nil
+}
+
+func CreateUser(email string, password string) (*User, error) {
 	hash, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 	if err != nil {
 		return nil, err
 	}
 
 	var newUser User
-	err = a.db.QueryRow("INSERT INTO users (email, password_hash) VALUES(?, ?) RETURNING id, email, created_at", email, string(hash)).Scan(&newUser.ID, &newUser.Email, &newUser.CreatedAt)
+	err = Db.QueryRow("INSERT INTO users (email, password_hash) VALUES(?, ?) RETURNING id, email, created_at", email, string(hash)).Scan(&newUser.ID, &newUser.Email, &newUser.CreatedAt)
 	if err != nil {
 		return nil, err
 	}
@@ -56,9 +65,9 @@ func (a *App) createUser(email string, password string) (*User, error) {
 	return &newUser, nil
 }
 
-func (a *App) getOrders() (*[]Order, error) {
+func GetOrders() (*[]Order, error) {
 	var orders []Order
-	rows, err := a.db.Query("SELECT id, sender_id, receiver_id, name, meta, comment, created_at created_at FROM orders")
+	rows, err := Db.Query("SELECT id, sender_id, receiver_id, name, meta, comment, created_at created_at FROM orders")
 	if err != nil {
 		return nil, err
 	}
@@ -79,16 +88,33 @@ func (a *App) getOrders() (*[]Order, error) {
 	return &orders, nil
 }
 
-func (a *App) getOrder(id string) (*Order, error) {
+func GetOrder(id string) (*Order, error) {
 	var order Order
-	err := a.db.QueryRow("SELECT id, sender_id, receiver_id, name, meta, comment, created_at created_at FROM orders WHERE id = ?", id).Scan(&order.ID, &order.SenderId, &order.ReceiverId, &order.Name, &order.Meta, &order.Comment, &order.CreatedAt)
+	err := Db.QueryRow("SELECT id, sender_id, receiver_id, name, meta, comment, created_at created_at FROM orders WHERE id = ?", id).Scan(&order.ID, &order.SenderId, &order.ReceiverId, &order.Name, &order.Meta, &order.Comment, &order.CreatedAt)
 	if err != nil {
 		return nil, err
 	}
 	return &order, nil
 }
 
-func (a *App) jwtCreateService(user *User, password string) (string, error) {
+func CreateOrderService(data *CreateOrder, sender *User) (*Order, error) {
+	var newOrder = Order{
+		SenderId:   sender.ID,
+		ReceiverId: data.ReceiverId,
+		Name:       data.Name,
+		Meta:       data.Meta,
+		Comment:    data.Comment,
+	}
+
+	err := Db.QueryRow("INSERT INTO orders (sender_id, receiver_id, name, meta, comment) VALUES(?, ?, ?, ?, ?) RETURNING id, created_at", sender.ID, data.ReceiverId, data.Name, data.Meta, data.Comment).Scan(&newOrder.ID, &newOrder.CreatedAt)
+	if err != nil {
+		return nil, err
+	}
+
+	return &newOrder, nil
+}
+
+func JwtCreateService(user *User, password string) (string, error) {
 	if err := bcrypt.CompareHashAndPassword([]byte(user.PasswordHash), []byte(password)); err != nil {
 		return "", fmt.Errorf("invalid credentials")
 	}
@@ -100,7 +126,7 @@ func (a *App) jwtCreateService(user *User, password string) (string, error) {
 		Issuer:    "oath",
 		Subject:   strconv.Itoa(user.ID),
 	})
-	ss, err := token.SignedString(a.jwtSecret)
+	ss, err := token.SignedString(jwtSecretKey)
 
 	if err != nil {
 		return "", err

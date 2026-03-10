@@ -25,10 +25,10 @@ type Scan struct {
 	ID        int       `json:"id"`
 	OrderId   int       `json:"order_id"`
 	CourierId int       `json:"courier_id"`
-	Photo     byte      `json:"photo"`
+	Photo     []byte    `json:"photo"`
 	Condition string    `json:"condition"`
 	Longitude float32   `json:"longitude"`
 	Latitude  float32   `json:"latitude"`
-	Comment   string    `json:"string"`
+	Comment   string    `json:"comment"`
 	CreatedAt time.Time `json:"created_at"`
 }

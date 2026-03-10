@@ -18,8 +18,8 @@ func jsonError(w http.ResponseWriter, msg string, code int) {
 	json.NewEncoder(w).Encode(map[string]string{"error": msg})
 }
 
-func (a *App) getUsersList(w http.ResponseWriter, r *http.Request) {
-	users, err := a.getUsers()
+func GetUsersList(w http.ResponseWriter, r *http.Request) {
+	users, err := GetUsers()
 	if err != nil {
 		jsonError(w, "Failed to fetch users", http.StatusInternalServerError)
 		return
@@ -28,10 +28,10 @@ func (a *App) getUsersList(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, *users)
 }
 
-func (a *App) getUserDetails(w http.ResponseWriter, r *http.Request) {
-	username := r.URL.Query().Get("username")
+func GetUserDetails(w http.ResponseWriter, r *http.Request) {
+	id := r.URL.Query().Get("id")
 
-	user, err := a.getUser(username)
+	user, err := GetUser(id)
 	if err != nil {
 		jsonError(w, "User not found", http.StatusBadRequest)
 		return
@@ -40,8 +40,8 @@ func (a *App) getUserDetails(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, *user)
 }
 
-func (a *App) getOrdersList(w http.ResponseWriter, r *http.Request) {
-	users, err := a.getOrders()
+func GetOrdersList(w http.ResponseWriter, r *http.Request) {
+	users, err := GetOrders()
 	if err != nil {
 		jsonError(w, "Failed to fetch orders", http.StatusInternalServerError)
 		return
@@ -50,10 +50,10 @@ func (a *App) getOrdersList(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, *users)
 }
 
-func (a *App) getOrderDetails(w http.ResponseWriter, r *http.Request) {
+func GetOrderDetails(w http.ResponseWriter, r *http.Request) {
 	id := r.URL.Query().Get("id")
 
-	order, err := a.getOrder(id)
+	order, err := GetOrder(id)
 	if err != nil {
 		jsonError(w, "Order not found", http.StatusBadRequest)
 		return
@@ -62,7 +62,37 @@ func (a *App) getOrderDetails(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, *order)
 }
 
-func (a *App) signup(w http.ResponseWriter, r *http.Request) {
+type CreateOrder struct {
+	ReceiverId int    `json:"receiver_id"`
+	Name       string `json:"name"`
+	Meta       string `json:"meta"`
+	Comment    string `json:"comment"`
+}
+
+func CreateOrderEndpoint(w http.ResponseWriter, r *http.Request) {
+	sender, ok := r.Context().Value(contextKeyUser).(*User)
+	if !ok || sender == nil {
+		jsonError(w, "Unauthorized", http.StatusUnauthorized)
+		return
+	}
+
+	var req CreateOrder
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		jsonError(w, "Invalid request body", http.StatusBadRequest)
+		return
+	}
+
+	order, err := CreateOrderService(&req, sender)
+	if err != nil {
+		log.Printf("create order error: %v", err)
+		jsonError(w, "Could not create order", http.StatusInternalServerError)
+		return
+	}
+
+	jsonResponse(w, *order)
+}
+
+func Signup(w http.ResponseWriter, r *http.Request) {
 	var req struct {
 		Email    string `json:"email"`
 		Password string `json:"password"`
@@ -72,14 +102,9 @@ func (a *App) signup(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if req.Email == "" || req.Password == "" {
-		jsonError(w, "Email and password are required", http.StatusBadRequest)
-		return
-	}
-
-	user, err := a.createUser(req.Email, req.Password)
+	user, err := CreateUser(req.Email, req.Password)
 	if err != nil {
-		log.Printf(err.Error())
+		log.Printf("signup error: %v", err)
 
 		if strings.Contains(err.Error(), "UNIQUE constraint failed") {
 			jsonError(w, "Email already exists", http.StatusConflict)
@@ -93,7 +118,7 @@ func (a *App) signup(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, *user)
 }
 
-func (a *App) jwtCreate(w http.ResponseWriter, r *http.Request) {
+func JwtCreate(w http.ResponseWriter, r *http.Request) {
 	var req struct {
 		Email    string `json:"email"`
 		Password string `json:"password"`
@@ -103,21 +128,17 @@ func (a *App) jwtCreate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	user, err := a.getUser(req.Email)
+	user, err := GetUserByEmail(req.Email)
 	if err != nil {
-		log.Printf(err.Error())
-		jsonError(w, err.Error(), http.StatusOK)
+		jsonError(w, "Invalid credentials", http.StatusUnauthorized)
 		return
 	}
 
-	accessToken, err := a.jwtCreateService(user, req.Password)
+	accessToken, err := JwtCreateService(user, req.Password)
 	if err != nil {
-		log.Printf(err.Error())
-		jsonError(w, err.Error(), http.StatusOK)
+		jsonError(w, "Invalid credentials", http.StatusUnauthorized)
 		return
 	}
-
-	log.Printf(accessToken)
 
 	jsonResponse(w, map[string]string{
 		"access_token": accessToken,

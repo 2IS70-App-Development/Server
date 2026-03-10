@@ -13,6 +13,12 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 )
 
+type contextKey string
+
+const contextKeyUser contextKey = "user"
+
+var jwtSecretKey []byte
+
 func envOr(key, fallback string) string {
 	if v := os.Getenv(key); v != "" {
 		return v
@@ -24,7 +30,6 @@ func envOr(key, fallback string) string {
 func logsMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		next.ServeHTTP(w, r)
-
 		log.Printf("[%s] %s", r.Method, r.URL.Path)
 	})
 }
@@ -39,24 +44,33 @@ func authMiddleware(next http.Handler, jwtSecret string) http.Handler {
 
 		accessToken := strings.TrimPrefix(r.Header.Get("Authorization"), "Bearer ")
 
-		log.Printf("%s", accessToken)
-
 		token, err := jwt.Parse(accessToken, func(token *jwt.Token) (any, error) {
 			return []byte(jwtSecret), nil
 		}, jwt.WithValidMethods([]string{jwt.SigningMethodHS256.Alg()}))
-
 		if err != nil {
-			log.Printf("%v", err.Error())
-
 			jsonError(w, "Unauthorized", http.StatusUnauthorized)
 			return
 		}
 
-		if _, ok := token.Claims.(jwt.MapClaims); ok {
-			next.ServeHTTP(w, r)
-		} else {
+		if _, ok := token.Claims.(jwt.MapClaims); !ok {
 			jsonError(w, "Unauthorized", http.StatusUnauthorized)
+			return
 		}
+
+		userId, err := token.Claims.GetSubject()
+		if err != nil {
+			jsonError(w, "Unauthorized", http.StatusUnauthorized)
+			return
+		}
+
+		user, err := GetUser(userId)
+		if err != nil {
+			jsonError(w, "Unauthorized", http.StatusUnauthorized)
+			return
+		}
+
+		ctx := context.WithValue(r.Context(), contextKeyUser, user)
+		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }
 
@@ -66,23 +80,28 @@ func main() {
 	schemaPath := envOr("SCHEMA_PATH", "./schema.sql")
 	jwtSecret := envOr("JWT_SECRET", "change-me-in-production")
 
-	app, err := NewApp(dbPath, schemaPath, jwtSecret)
+	jwtSecretKey = []byte(jwtSecret)
+
+	err := DbStart(dbPath, schemaPath)
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer app.db.Close()
+	defer Db.Close()
 
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/api/health", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 	})
-	mux.Handle("GET /auth/users", http.HandlerFunc(app.getUsersList))
-	mux.Handle("GET /auth/users/details", http.HandlerFunc(app.getUserDetails))
-	mux.Handle("GET /auth/orders", http.HandlerFunc(app.getOrdersList))
-	mux.Handle("GET /auth/orders/details", http.HandlerFunc(app.getOrderDetails))
-	mux.HandleFunc("POST /signup", app.signup)
-	mux.HandleFunc("POST /jwt/create", app.jwtCreate)
+	mux.Handle("GET /auth/users", http.HandlerFunc(GetUsersList))
+	mux.Handle("GET /auth/users/details", http.HandlerFunc(GetUserDetails))
+
+	mux.Handle("GET /auth/orders", http.HandlerFunc(GetOrdersList))
+	mux.Handle("GET /auth/orders/details", http.HandlerFunc(GetOrderDetails))
+	mux.Handle("POST /auth/orders", http.HandlerFunc(CreateOrderEndpoint))
+
+	mux.HandleFunc("POST /signup", Signup)
+	mux.HandleFunc("POST /jwt/create", JwtCreate)
 
 	fmt.Printf("Server starting on port %s...\n", port)
 
@@ -90,6 +109,7 @@ func main() {
 		Addr:    ":" + port,
 		Handler: authMiddleware(logsMiddleware(mux), jwtSecret),
 	}
+
 	go func() {
 		err := srv.ListenAndServe()
 		if err != nil && err != http.ErrServerClosed {
