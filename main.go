@@ -1,11 +1,14 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
+	"os/signal"
 	"strings"
+	"time"
 
 	"github.com/golang-jwt/jwt/v5"
 )
@@ -55,7 +58,7 @@ func authMiddleware(next http.Handler, jwtSecret string) http.Handler {
 		}, jwt.WithValidMethods([]string{jwt.SigningMethodHS256.Alg()}))
 
 		if err != nil {
-			log.Printf(err.Error())
+			log.Printf("%v", err.Error())
 
 			jsonError(w, "Unauthorized", http.StatusUnauthorized)
 			return
@@ -93,9 +96,25 @@ func main() {
 
 	fmt.Printf("Server starting on port %s...\n", port)
 
-	handlers := logsMiddleware(corsMiddleware(allowedOrigin, mux))
+	srv := &http.Server{
+		Addr:    ":8080",
+		Handler: logsMiddleware(corsMiddleware(allowedOrigin, mux)),
+	}
+	go func() {
+		err := srv.ListenAndServe()
+		if err != nil && err != http.ErrServerClosed {
+			fmt.Fprintf(os.Stderr, "Server error: %v", err)
+			os.Exit(1)
+		}
 
-	if err := http.ListenAndServe(":"+port, handlers); err != nil {
-		log.Fatal(err)
+	}()
+	stop := make(chan os.Signal, 1)
+	signal.Notify(stop, os.Interrupt)
+	<-stop
+	fmt.Printf("Shutdown signal received. Shutting down gracefully...")
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	if err := srv.Shutdown(ctx); err != nil {
+		fmt.Fprintf(os.Stderr, "HTTP server shutdown error: %v", err)
 	}
 }
