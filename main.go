@@ -77,15 +77,15 @@ func main() {
 	mux.HandleFunc("/api/health", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 	})
-	mux.Handle("/auth/users", http.HandlerFunc(app.getUsersList))
-	mux.Handle("/auth/users/details", http.HandlerFunc(app.getUserDetails))
-	mux.HandleFunc("/signup", app.signup)
-	mux.HandleFunc("/jwt/create", app.jwtCreate)
+	mux.Handle("GET /auth/users", http.HandlerFunc(app.getUsersList))
+	mux.Handle("GET /auth/users/details", http.HandlerFunc(app.getUserDetails))
+	mux.HandleFunc("POST /signup", app.signup)
+	mux.HandleFunc("POST /jwt/create", app.jwtCreate)
 
 	fmt.Printf("Server starting on port %s...\n", port)
 
 	srv := &http.Server{
-		Addr:    ":"+port,
+		Addr:    ":" + port,
 		Handler: authMiddleware(logsMiddleware(mux), jwtSecret),
 	}
 	go func() {

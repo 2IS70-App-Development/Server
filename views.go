@@ -41,11 +41,6 @@ func (a *App) getUserDetails(w http.ResponseWriter, r *http.Request) {
 }
 
 func (a *App) signup(w http.ResponseWriter, r *http.Request) {
-	if r.Method != "POST" {
-		jsonError(w, "Method not allowed", http.StatusMethodNotAllowed)
-		return
-	}
-
 	var req struct {
 		Email    string `json:"email"`
 		Password string `json:"password"`
@@ -77,11 +72,6 @@ func (a *App) signup(w http.ResponseWriter, r *http.Request) {
 }
 
 func (a *App) jwtCreate(w http.ResponseWriter, r *http.Request) {
-	if r.Method != "POST" {
-		jsonError(w, "Method not allowed", http.StatusMethodNotAllowed)
-		return
-	}
-
 	var req struct {
 		Email    string `json:"email"`
 		Password string `json:"password"`
