@@ -89,6 +89,23 @@ func CreateOrderEndpoint(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if strings.TrimSpace(req.Name) == "" {
+		jsonError(w, "Name is required", http.StatusBadRequest)
+		return
+	}
+
+	receiverId := fmt.Sprintf("%d", req.ReceiverId)
+	_, err := GetUser(receiverId)
+	if err != nil {
+		jsonError(w, "Receiver not found", http.StatusBadRequest)
+		return
+	}
+
+	if req.ReceiverId == sender.ID {
+		jsonError(w, "Cannot send an order to yourself", http.StatusBadRequest)
+		return
+	}
+
 	order, err := CreateOrderService(&req, sender)
 	if err != nil {
 		log.Printf("create order error: %v", err)
@@ -207,6 +224,14 @@ func CreateOrderScanEndpoint(w http.ResponseWriter, r *http.Request) {
 	var req CreateOrderScanRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		jsonError(w, "Invalid request body", http.StatusBadRequest)
+		return
+	}
+
+	allowedConditions := map[string]bool{
+		"good": true, "damaged": true, "missing": true,
+	}
+	if !allowedConditions[req.Condition] {
+		jsonError(w, "Invalid condition. Allowed: good, damaged, missing", http.StatusBadRequest)
 		return
 	}
 
