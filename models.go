@@ -16,6 +16,7 @@ type Order struct {
 	SenderId   int       `json:"sender_id"`
 	ReceiverId int       `json:"receiver_id"`
 	Name       string    `json:"name"`
+	Status     string    `json:"status"`
 	Meta       string    `json:"meta"`
 	Comment    string    `json:"comment"`
 	CreatedAt  time.Time `json:"created_at"`

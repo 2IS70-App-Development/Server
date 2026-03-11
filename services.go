@@ -69,7 +69,7 @@ func CreateUser(email string, password string) (*User, error) {
 
 func GetOrders() (*[]Order, error) {
 	var orders []Order
-	rows, err := Db.Query("SELECT id, sender_id, receiver_id, name, meta, comment, created_at created_at FROM orders")
+	rows, err := Db.Query("SELECT id, sender_id, receiver_id, name, status, meta, comment, created_at FROM orders")
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +77,7 @@ func GetOrders() (*[]Order, error) {
 
 	for rows.Next() {
 		var order Order
-		if err := rows.Scan(&order.ID, &order.SenderId, &order.ReceiverId, &order.Name, &order.Meta, &order.Comment, &order.CreatedAt); err != nil {
+		if err := rows.Scan(&order.ID, &order.SenderId, &order.ReceiverId, &order.Name, &order.Status, &order.Meta, &order.Comment, &order.CreatedAt); err != nil {
 			return nil, err
 		}
 		orders = append(orders, order)
@@ -92,7 +92,7 @@ func GetOrders() (*[]Order, error) {
 
 func GetOrder(id string) (*Order, error) {
 	var order Order
-	err := Db.QueryRow("SELECT id, sender_id, receiver_id, name, meta, comment, created_at created_at FROM orders WHERE id = ?", id).Scan(&order.ID, &order.SenderId, &order.ReceiverId, &order.Name, &order.Meta, &order.Comment, &order.CreatedAt)
+	err := Db.QueryRow("SELECT id, sender_id, receiver_id, name, status, meta, comment, created_at FROM orders WHERE id = ?", id).Scan(&order.ID, &order.SenderId, &order.ReceiverId, &order.Name, &order.Status, &order.Meta, &order.Comment, &order.CreatedAt)
 	if err != nil {
 		return nil, err
 	}
@@ -108,12 +108,21 @@ func CreateOrderService(data *CreateOrder, sender *User) (*Order, error) {
 		Comment:    data.Comment,
 	}
 
-	err := Db.QueryRow("INSERT INTO orders (sender_id, receiver_id, name, meta, comment) VALUES(?, ?, ?, ?, ?) RETURNING id, created_at", sender.ID, data.ReceiverId, data.Name, data.Meta, data.Comment).Scan(&newOrder.ID, &newOrder.CreatedAt)
+	err := Db.QueryRow("INSERT INTO orders (sender_id, receiver_id, name, meta, comment) VALUES(?, ?, ?, ?, ?) RETURNING id, status, created_at", sender.ID, data.ReceiverId, data.Name, data.Meta, data.Comment).Scan(&newOrder.ID, &newOrder.Status, &newOrder.CreatedAt)
 	if err != nil {
 		return nil, err
 	}
 
 	return &newOrder, nil
+}
+
+func UpdateOrderStatus(id string, status string) (*Order, error) {
+	var order Order
+	err := Db.QueryRow("UPDATE orders SET status = ? WHERE id = ? RETURNING id, sender_id, receiver_id, name, status, meta, comment, created_at", status, id).Scan(&order.ID, &order.SenderId, &order.ReceiverId, &order.Name, &order.Status, &order.Meta, &order.Comment, &order.CreatedAt)
+	if err != nil {
+		return nil, err
+	}
+	return &order, nil
 }
 
 func GetOrderScans(orderId string) ([]Scan, error) {

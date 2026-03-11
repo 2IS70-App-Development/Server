@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS orders (
     sender_id INTEGER NOT NULL,
     receiver_id INTEGER NOT NULL,
     name VARCHAR(255) NOT NULL,
+    status VARCHAR(50) NOT NULL DEFAULT 'pending',
     meta TEXT,
     comment TEXT,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,

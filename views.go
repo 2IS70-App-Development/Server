@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"strings"
@@ -92,6 +93,61 @@ func CreateOrderEndpoint(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, *order)
 }
 
+func UpdateOrderStatusEndpoint(w http.ResponseWriter, r *http.Request) {
+	user, ok := r.Context().Value(contextKeyUser).(*User)
+	if !ok || user == nil {
+		jsonError(w, "Unauthorized", http.StatusUnauthorized)
+		return
+	}
+
+	var req struct {
+		OrderId int    `json:"order_id"`
+		Status  string `json:"status"`
+	}
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		jsonError(w, "Invalid request body", http.StatusBadRequest)
+		return
+	}
+
+	allowedStatuses := map[string]bool{
+		"pending": true, "in-transit": true, "delivered": true, "cancelled": true,
+	}
+	if !allowedStatuses[req.Status] {
+		jsonError(w, "Invalid status. Allowed: pending, in-transit, delivered, cancelled", http.StatusBadRequest)
+		return
+	}
+
+	orderId := fmt.Sprintf("%d", req.OrderId)
+	order, err := GetOrder(orderId)
+	if err != nil {
+		jsonError(w, "Order not found", http.StatusNotFound)
+		return
+	}
+
+	if order.SenderId != user.ID && order.ReceiverId != user.ID {
+		jsonError(w, "Forbidden", http.StatusForbidden)
+		return
+	}
+
+	if order.Status == "cancelled" {
+		jsonError(w, "Cannot update a cancelled order", http.StatusConflict)
+		return
+	}
+	if order.Status == "delivered" {
+		jsonError(w, "Cannot update a delivered order", http.StatusConflict)
+		return
+	}
+
+	updated, err := UpdateOrderStatus(orderId, req.Status)
+	if err != nil {
+		log.Printf("update order status error: %v", err)
+		jsonError(w, "Could not update order status", http.StatusInternalServerError)
+		return
+	}
+
+	jsonResponse(w, *updated)
+}
+
 func GetOrderScansEndpoint(w http.ResponseWriter, r *http.Request) {
 	user, ok := r.Context().Value(contextKeyUser).(*User)
 	if !ok || user == nil {
@@ -148,11 +204,34 @@ func CreateOrderScanEndpoint(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err := CreateOrderScan(&req, courier)
+	orderId := fmt.Sprintf("%d", req.OrderId)
+	order, err := GetOrder(orderId)
+	if err != nil {
+		jsonError(w, "Order not found", http.StatusNotFound)
+		return
+	}
+
+	if order.Status == "cancelled" {
+		jsonError(w, "Cannot scan a cancelled order", http.StatusConflict)
+		return
+	}
+	if order.Status == "delivered" {
+		jsonError(w, "Cannot scan a delivered order", http.StatusConflict)
+		return
+	}
+
+	err = CreateOrderScan(&req, courier)
 	if err != nil {
 		log.Printf("create order scan error: %v", err)
 		jsonError(w, "Could not create order scan", http.StatusInternalServerError)
 		return
+	}
+
+	if order.Status == "pending" {
+		_, err = UpdateOrderStatus(orderId, "in-transit")
+		if err != nil {
+			log.Printf("auto status update error: %v", err)
+		}
 	}
 
 	jsonResponse(w, "all good")
