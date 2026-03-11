@@ -5,6 +5,8 @@ import (
 	"strconv"
 	"time"
 
+	b64 "encoding/base64"
+
 	"github.com/golang-jwt/jwt/v5"
 	"golang.org/x/crypto/bcrypt"
 )
@@ -112,6 +114,43 @@ func CreateOrderService(data *CreateOrder, sender *User) (*Order, error) {
 	}
 
 	return &newOrder, nil
+}
+
+func GetOrderScans(orderId string) ([]Scan, error) {
+	var scans []Scan
+	rows, err := Db.Query("SELECT id, order_id, courier_id, photo, condition, longitude, latitude, comment, created_at FROM scans WHERE order_id = ?", orderId)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var scan Scan
+		if err := rows.Scan(&scan.ID, &scan.OrderId, &scan.CourierId, &scan.Photo, &scan.Condition, &scan.Longitude, &scan.Latitude, &scan.Comment, &scan.CreatedAt); err != nil {
+			return nil, err
+		}
+		scans = append(scans, scan)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return scans, nil
+}
+
+func CreateOrderScan(data *CreateOrderScanRequest, courier *User) error {
+	photo, err := b64.RawStdEncoding.DecodeString(data.PhotoBase64)
+	if err != nil {
+		return err
+	}
+
+	_, err = Db.Exec("INSERT INTO scans (order_id, courier_id, photo, condition, longitude, latitude, comment) VALUES(?, ?, ?, ?, ?, ?, ?)", data.OrderId, courier.ID, photo, data.Condition, data.Longitude, data.Latitude, data.Comment)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func JwtCreateService(user *User, password string) (string, error) {

@@ -92,6 +92,72 @@ func CreateOrderEndpoint(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, *order)
 }
 
+func GetOrderScansEndpoint(w http.ResponseWriter, r *http.Request) {
+	user, ok := r.Context().Value(contextKeyUser).(*User)
+	if !ok || user == nil {
+		jsonError(w, "Unauthorized", http.StatusUnauthorized)
+		return
+	}
+
+	orderId := r.URL.Query().Get("order_id")
+	if orderId == "" {
+		jsonError(w, "Missing order_id parameter", http.StatusBadRequest)
+		return
+	}
+
+	order, err := GetOrder(orderId)
+	if err != nil {
+		jsonError(w, "Order not found", http.StatusNotFound)
+		return
+	}
+
+	if order.SenderId != user.ID && order.ReceiverId != user.ID {
+		jsonError(w, "Forbidden", http.StatusForbidden)
+		return
+	}
+
+	scans, err := GetOrderScans(orderId)
+	if err != nil {
+		log.Printf("get order scans error: %v", err)
+		jsonError(w, "Could not fetch scans", http.StatusInternalServerError)
+		return
+	}
+
+	jsonResponse(w, scans)
+}
+
+type CreateOrderScanRequest struct {
+	OrderId     int     `json:"order_id"`
+	PhotoBase64 string  `json:"photo_base64"`
+	Condition   string  `json:"condition"`
+	Longitude   float32 `json:"longitude"`
+	Latitude    float32 `json:"latitude"`
+	Comment     string  `json:"comment"`
+}
+
+func CreateOrderScanEndpoint(w http.ResponseWriter, r *http.Request) {
+	courier, ok := r.Context().Value(contextKeyUser).(*User)
+	if !ok || courier == nil {
+		jsonError(w, "Unauthorized", http.StatusUnauthorized)
+		return
+	}
+
+	var req CreateOrderScanRequest
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		jsonError(w, "Invalid request body", http.StatusBadRequest)
+		return
+	}
+
+	err := CreateOrderScan(&req, courier)
+	if err != nil {
+		log.Printf("create order scan error: %v", err)
+		jsonError(w, "Could not create order scan", http.StatusInternalServerError)
+		return
+	}
+
+	jsonResponse(w, "all good")
+}
+
 func Signup(w http.ResponseWriter, r *http.Request) {
 	var req struct {
 		Email    string `json:"email"`
