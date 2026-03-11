@@ -67,9 +67,9 @@ func CreateUser(email string, password string) (*User, error) {
 	return &newUser, nil
 }
 
-func GetOrders() (*[]Order, error) {
+func GetOrders(userId int) (*[]Order, error) {
 	var orders []Order
-	rows, err := Db.Query("SELECT id, sender_id, receiver_id, name, status, meta, comment, created_at FROM orders")
+	rows, err := Db.Query("SELECT id, sender_id, receiver_id, name, status, meta, comment, created_at FROM orders WHERE sender_id = ? OR receiver_id = ?", userId, userId)
 	if err != nil {
 		return nil, err
 	}

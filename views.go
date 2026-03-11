@@ -42,13 +42,19 @@ func GetUserDetails(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetOrdersList(w http.ResponseWriter, r *http.Request) {
-	users, err := GetOrders()
+	user, ok := r.Context().Value(contextKeyUser).(*User)
+	if !ok || user == nil {
+		jsonError(w, "Unauthorized", http.StatusUnauthorized)
+		return
+	}
+
+	orders, err := GetOrders(user.ID)
 	if err != nil {
 		jsonError(w, "Failed to fetch orders", http.StatusInternalServerError)
 		return
 	}
 
-	jsonResponse(w, *users)
+	jsonResponse(w, *orders)
 }
 
 func GetOrderDetails(w http.ResponseWriter, r *http.Request) {
