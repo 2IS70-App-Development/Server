@@ -14,9 +14,9 @@ CREATE TABLE IF NOT EXISTS orders (
     comment TEXT,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_sender
-    FOREIGN KEY (sender_id) REFERENCES users(id)
+    FOREIGN KEY (sender_id) REFERENCES users(id),
     CONSTRAINT fk_receiver
-    FOREIGN KEY (receiver_id) REFERENCES users(id)
+    FOREIGN KEY (receiver_id) REFERENCES users(id),
     CONSTRAINT sender_receiver
     CHECK (sender_id <> receiver_id)
 );
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS scans (
     comment TEXT,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_order
-    FOREIGN KEY (order_id) REFERENCES orders(id)
+    FOREIGN KEY (order_id) REFERENCES orders(id),
     CONSTRAINT fk_courier
     FOREIGN KEY (courier_id) REFERENCES users(id)
 );
