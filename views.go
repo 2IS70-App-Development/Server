@@ -294,6 +294,90 @@ func Signup(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, *user)
 }
 
+func GetContactsEndpoint(w http.ResponseWriter, r *http.Request) {
+	user, ok := r.Context().Value(contextKeyUser).(*User)
+	if !ok || user == nil {
+		jsonError(w, "Unauthorized", http.StatusUnauthorized)
+		return
+	}
+
+	contacts, err := GetContacts(user.ID)
+	if err != nil {
+		log.Printf("get contacts error: %v", err)
+		jsonError(w, "Failed to fetch contacts", http.StatusInternalServerError)
+		return
+	}
+
+	jsonResponse(w, *contacts)
+}
+
+type AddContactRequest struct {
+	ContactId int `json:"contact_id"`
+}
+
+func AddContactEndpoint(w http.ResponseWriter, r *http.Request) {
+	user, ok := r.Context().Value(contextKeyUser).(*User)
+	if !ok || user == nil {
+		jsonError(w, "Unauthorized", http.StatusUnauthorized)
+		return
+	}
+
+	var req AddContactRequest
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		jsonError(w, "Invalid request body", http.StatusBadRequest)
+		return
+	}
+
+	if req.ContactId == user.ID {
+		jsonError(w, "Cannot add yourself as a contact", http.StatusBadRequest)
+		return
+	}
+
+	contact, err := AddContact(user.ID, req.ContactId)
+	if err != nil {
+		log.Printf("add contact error: %v", err)
+		if strings.Contains(err.Error(), "UNIQUE constraint failed") {
+			jsonError(w, "Contact already exists", http.StatusConflict)
+			return
+		}
+		if strings.Contains(err.Error(), "FOREIGN KEY constraint failed") {
+			jsonError(w, "Contact user not found", http.StatusBadRequest)
+			return
+		}
+		jsonError(w, "Could not add contact", http.StatusInternalServerError)
+		return
+	}
+
+	jsonResponse(w, *contact)
+}
+
+type RemoveContactRequest struct {
+	ContactId int `json:"contact_id"`
+}
+
+func RemoveContactEndpoint(w http.ResponseWriter, r *http.Request) {
+	user, ok := r.Context().Value(contextKeyUser).(*User)
+	if !ok || user == nil {
+		jsonError(w, "Unauthorized", http.StatusUnauthorized)
+		return
+	}
+
+	var req RemoveContactRequest
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		jsonError(w, "Invalid request body", http.StatusBadRequest)
+		return
+	}
+
+	err := RemoveContact(user.ID, req.ContactId)
+	if err != nil {
+		log.Printf("remove contact error: %v", err)
+		jsonError(w, "Could not remove contact", http.StatusInternalServerError)
+		return
+	}
+
+	w.WriteHeader(http.StatusNoContent)
+}
+
 func JwtCreate(w http.ResponseWriter, r *http.Request) {
 	var req struct {
 		Email    string `json:"email"`

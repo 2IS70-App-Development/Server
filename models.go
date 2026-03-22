@@ -33,3 +33,8 @@ type Scan struct {
 	Comment   string    `json:"comment"`
 	CreatedAt time.Time `json:"created_at"`
 }
+
+type Contact struct {
+	OwnerId   int `json:"owner_id"`
+	ContactId int `json:"contact_id"`
+}

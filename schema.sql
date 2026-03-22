@@ -38,3 +38,12 @@ CREATE TABLE IF NOT EXISTS scans (
     FOREIGN KEY (courier_id) REFERENCES users(id)
 );
 
+CREATE TABLE IF NOT EXISTS contacts (
+    owner_id INTEGER NOT NULL,
+    contact_id INTEGER NOT NULL,
+    PRIMARY KEY (owner_id, contact_id),
+    FOREIGN KEY (owner_id) REFERENCES users(id),
+    FOREIGN KEY (contact_id) REFERENCES users(id),
+    CHECK (owner_id <> contact_id)
+);
+

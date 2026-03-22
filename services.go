@@ -162,6 +162,43 @@ func CreateOrderScan(data *CreateOrderScanRequest, courier *User) error {
 	return nil
 }
 
+func GetContacts(ownerId int) (*[]Contact, error) {
+	var contacts []Contact
+	rows, err := Db.Query("SELECT owner_id, contact_id FROM contacts WHERE owner_id = ?", ownerId)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var contact Contact
+		if err := rows.Scan(&contact.OwnerId, &contact.ContactId); err != nil {
+			return nil, err
+		}
+		contacts = append(contacts, contact)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return &contacts, nil
+}
+
+func AddContact(ownerId int, contactUserId int) (*Contact, error) {
+	_, err := Db.Exec("INSERT INTO contacts (owner_id, contact_id) VALUES (?, ?)", ownerId, contactUserId)
+	if err != nil {
+		return nil, err
+	}
+
+	return &Contact{OwnerId: ownerId, ContactId: contactUserId}, nil
+}
+
+func RemoveContact(ownerId int, contactUserId int) error {
+	_, err := Db.Exec("DELETE FROM contacts WHERE owner_id = ? AND contact_id = ?", ownerId, contactUserId)
+	return err
+}
+
 func JwtCreateService(user *User, password string) (string, error) {
 	if err := bcrypt.CompareHashAndPassword([]byte(user.PasswordHash), []byte(password)); err != nil {
 		return "", fmt.Errorf("invalid credentials")
