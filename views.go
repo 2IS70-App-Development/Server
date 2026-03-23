@@ -170,6 +170,12 @@ func UpdateOrderStatusEndpoint(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// create activity entries for sender and receiver (best-effort async)
+	go func() {
+		_ = CreateActivity(user.ID, updated.SenderId, "status_changed", fmt.Sprintf("Order %d status changed to %s", updated.ID, updated.Status))
+		_ = CreateActivity(user.ID, updated.ReceiverId, "status_changed", fmt.Sprintf("Order %d status changed to %s", updated.ID, updated.Status))
+	}()
+
 	jsonResponse(w, *updated)
 }
 
@@ -284,7 +290,31 @@ func CreateOrderScanEndpoint(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
+	// create activity entries: for courier (self), and notify sender & receiver
+	go func() {
+		_ = CreateActivity(courier.ID, courier.ID, "scan_created", fmt.Sprintf("Scan created for order %d", req.OrderId))
+		_ = CreateActivity(courier.ID, order.SenderId, "scan_added", fmt.Sprintf("Order %d scanned by courier %d", req.OrderId, courier.ID))
+		_ = CreateActivity(courier.ID, order.ReceiverId, "scan_added", fmt.Sprintf("Order %d scanned by courier %d", req.OrderId, courier.ID))
+	}()
+
 	jsonResponse(w, "all good")
+}
+
+func GetActivitiesEndpoint(w http.ResponseWriter, r *http.Request) {
+	user, ok := r.Context().Value(contextKeyUser).(*User)
+	if !ok || user == nil {
+		jsonError(w, "Unauthorized", http.StatusUnauthorized)
+		return
+	}
+
+	acts, err := GetActivitiesForUser(user.ID)
+	if err != nil {
+		log.Printf("get activities error: %v", err)
+		jsonError(w, "Could not fetch activities", http.StatusInternalServerError)
+		return
+	}
+
+	jsonResponse(w, acts)
 }
 
 func Signup(w http.ResponseWriter, r *http.Request) {

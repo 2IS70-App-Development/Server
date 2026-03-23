@@ -128,6 +128,13 @@ func CreateOrderService(data *CreateOrder, sender *User) (*Order, error) {
 		return nil, err
 	}
 
+	// create denormalized activity entries for sender and receiver
+	go func() {
+		// best-effort async logging
+		_ = CreateActivity(sender.ID, sender.ID, "order_created", fmt.Sprintf("Created order %d to %d", newOrder.ID, data.ReceiverId))
+		_ = CreateActivity(sender.ID, data.ReceiverId, "order_received", fmt.Sprintf("Order %d created for you by %d", newOrder.ID, sender.ID))
+	}()
+
 	return &newOrder, nil
 }
 
@@ -198,6 +205,34 @@ func CreateOrderScan(data *CreateOrderScanRequest, courier *User) error {
 	}
 
 	return nil
+}
+
+// CreateActivity inserts a denormalized activity row.
+func CreateActivity(actorId int, userId int, typ string, summary string) error {
+	_, err := Db.Exec("INSERT INTO activities (actor_id, user_id, type, summary) VALUES(?, ?, ?, ?)", actorId, userId, typ, summary)
+	return err
+}
+
+// GetActivitiesForUser returns activities for a given user ordered newest first.
+func GetActivitiesForUser(userId int) ([]Activity, error) {
+	var acts []Activity
+	rows, err := Db.Query("SELECT id, actor_id, user_id, type, summary, created_at FROM activities WHERE user_id = ? ORDER BY created_at DESC", userId)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var a Activity
+		if err := rows.Scan(&a.ID, &a.ActorId, &a.UserId, &a.Type, &a.Summary, &a.CreatedAt); err != nil {
+			return nil, err
+		}
+		acts = append(acts, a)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return acts, nil
 }
 
 func GetContacts(ownerId int) (*[]Contact, error) {

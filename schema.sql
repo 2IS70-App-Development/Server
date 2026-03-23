@@ -48,3 +48,14 @@ CREATE TABLE IF NOT EXISTS contacts (
     CHECK (owner_id <> contact_id)
 );
 
+CREATE TABLE IF NOT EXISTS activities (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    actor_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    type VARCHAR(100) NOT NULL,
+    summary TEXT NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (actor_id) REFERENCES users(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+

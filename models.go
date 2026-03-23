@@ -39,3 +39,12 @@ type Contact struct {
 	OwnerId   int `json:"owner_id"`
 	ContactId int `json:"contact_id"`
 }
+
+type Activity struct {
+	ID        int       `json:"id"`
+	ActorId   int       `json:"actor_id"`
+	UserId    int       `json:"user_id"`
+	Type      string    `json:"type"`
+	Summary   string    `json:"summary"`
+	CreatedAt time.Time `json:"created_at"`
+}
