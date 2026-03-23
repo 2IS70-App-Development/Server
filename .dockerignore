@@ -1,0 +1,10 @@
+.git
+.gitignore
+**/vendor
+node_modules
+*.tmp
+*.log
+.DS_Store
+bin
+build
+coverage.out
