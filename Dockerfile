@@ -19,7 +19,6 @@ RUN apk add --no-cache ca-certificates sqlite-libs
 RUN addgroup -S app && adduser -S app -G app
 COPY --from=builder /usr/local/bin/server /usr/local/bin/server
 COPY --from=builder /src/schema.sql /app/schema.sql
-COPY --from=builder /src/database.db /app/database.db
 WORKDIR /app
 USER app
 
