@@ -75,6 +75,7 @@ type CreateOrder struct {
 	Name       string `json:"name"`
 	Meta       string `json:"meta"`
 	Comment    string `json:"comment"`
+	PhotoBase64 string `json:"photo_base64,omitempty"`
 }
 
 func CreateOrderEndpoint(w http.ResponseWriter, r *http.Request) {

@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS orders (
     status VARCHAR(50) NOT NULL DEFAULT 'pending',
     meta TEXT,
     comment TEXT,
+    photo BLOB,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_sender
     FOREIGN KEY (sender_id) REFERENCES users(id),

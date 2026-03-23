@@ -83,7 +83,7 @@ func GetOrders(userId int) (*[]Order, error) {
 
 	for rows.Next() {
 		var order Order
-		if err := rows.Scan(&order.ID, &order.SenderId, &order.ReceiverId, &order.Name, &order.Status, &order.Meta, &order.Comment, &order.CreatedAt); err != nil {
+		if err := rows.Scan(&order.ID, &order.SenderId, &order.ReceiverId, &order.Name, &order.Status, &order.Meta, &order.Comment, &order.Photo, &order.CreatedAt); err != nil {
 			return nil, err
 		}
 		orders = append(orders, order)
@@ -98,7 +98,7 @@ func GetOrders(userId int) (*[]Order, error) {
 
 func GetOrder(id string) (*Order, error) {
 	var order Order
-	err := Db.QueryRow("SELECT id, sender_id, receiver_id, name, status, meta, comment, created_at FROM orders WHERE id = ?", id).Scan(&order.ID, &order.SenderId, &order.ReceiverId, &order.Name, &order.Status, &order.Meta, &order.Comment, &order.CreatedAt)
+	err := Db.QueryRow("SELECT id, sender_id, receiver_id, name, status, meta, comment, photo, created_at FROM orders WHERE id = ?", id).Scan(&order.ID, &order.SenderId, &order.ReceiverId, &order.Name, &order.Status, &order.Meta, &order.Comment, &order.Photo, &order.CreatedAt)
 	if err != nil {
 		return nil, err
 	}
@@ -114,7 +114,16 @@ func CreateOrderService(data *CreateOrder, sender *User) (*Order, error) {
 		Comment:    data.Comment,
 	}
 
-	err := Db.QueryRow("INSERT INTO orders (sender_id, receiver_id, name, meta, comment) VALUES(?, ?, ?, ?, ?) RETURNING id, status, created_at", sender.ID, data.ReceiverId, data.Name, data.Meta, data.Comment).Scan(&newOrder.ID, &newOrder.Status, &newOrder.CreatedAt)
+	var photo []byte
+	if data.PhotoBase64 != "" {
+		decoded, err := b64.RawStdEncoding.DecodeString(data.PhotoBase64)
+		if err != nil {
+			return nil, err
+		}
+		photo = decoded
+	}
+
+	err := Db.QueryRow("INSERT INTO orders (sender_id, receiver_id, name, meta, comment, photo) VALUES(?, ?, ?, ?, ?, ?) RETURNING id, status, photo, created_at", sender.ID, data.ReceiverId, data.Name, data.Meta, data.Comment, photo).Scan(&newOrder.ID, &newOrder.Status, &newOrder.Photo, &newOrder.CreatedAt)
 	if err != nil {
 		return nil, err
 	}
@@ -124,7 +133,7 @@ func CreateOrderService(data *CreateOrder, sender *User) (*Order, error) {
 
 func UpdateOrderStatus(id string, status string) (*Order, error) {
 	var order Order
-	err := Db.QueryRow("UPDATE orders SET status = ? WHERE id = ? RETURNING id, sender_id, receiver_id, name, status, meta, comment, created_at", status, id).Scan(&order.ID, &order.SenderId, &order.ReceiverId, &order.Name, &order.Status, &order.Meta, &order.Comment, &order.CreatedAt)
+	err := Db.QueryRow("UPDATE orders SET status = ? WHERE id = ? RETURNING id, sender_id, receiver_id, name, status, meta, comment, photo, created_at", status, id).Scan(&order.ID, &order.SenderId, &order.ReceiverId, &order.Name, &order.Status, &order.Meta, &order.Comment, &order.Photo, &order.CreatedAt)
 	if err != nil {
 		return nil, err
 	}

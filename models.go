@@ -19,6 +19,7 @@ type Order struct {
 	Status     string    `json:"status"`
 	Meta       string    `json:"meta"`
 	Comment    string    `json:"comment"`
+	Photo      []byte    `json:"photo,omitempty"`
 	CreatedAt  time.Time `json:"created_at"`
 }
 
