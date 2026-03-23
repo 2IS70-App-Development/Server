@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"log"
 	"net/http"
@@ -281,6 +282,11 @@ func Signup(w http.ResponseWriter, r *http.Request) {
 	user, err := CreateUser(req.Email, req.Password)
 	if err != nil {
 		log.Printf("signup error: %v", err)
+
+		if errors.Is(err, ErrPasswordTooShort) {
+			jsonError(w, "Password must be at least 8 characters long", http.StatusBadRequest)
+			return
+		}
 
 		if strings.Contains(err.Error(), "UNIQUE constraint failed") {
 			jsonError(w, "Email already exists", http.StatusConflict)

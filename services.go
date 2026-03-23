@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"strconv"
 	"time"
@@ -10,6 +11,8 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 	"golang.org/x/crypto/bcrypt"
 )
+
+var ErrPasswordTooShort = errors.New("password must be at least 8 characters")
 
 func GetUsers() (*[]User, error) {
 	var users []User
@@ -53,6 +56,9 @@ func GetUserByEmail(email string) (*User, error) {
 }
 
 func CreateUser(email string, password string) (*User, error) {
+	if len(password) < 8 {
+		return nil, ErrPasswordTooShort
+	}
 	hash, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 	if err != nil {
 		return nil, err
@@ -200,6 +206,9 @@ func RemoveContact(ownerId int, contactUserId int) error {
 }
 
 func JwtCreateService(user *User, password string) (string, error) {
+	if len(password) < 8 {
+		return "", ErrPasswordTooShort
+	}
 	if err := bcrypt.CompareHashAndPassword([]byte(user.PasswordHash), []byte(password)); err != nil {
 		return "", fmt.Errorf("invalid credentials")
 	}
