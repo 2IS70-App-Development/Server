@@ -19,19 +19,21 @@ RUN apk add --no-cache sqlite && \
     sqlite3 /src/database.db < /src/schema.sql && \
     chmod 0444 /src/database.db
 
-FROM alpine:3.18
-RUN apk add --no-cache ca-certificates sqlite-libs
+FROM golang:1.24-alpine
+RUN apk add --no-cache ca-certificates sqlite-dev build-base git
 
 RUN addgroup -S app && adduser -S app -G app
-COPY --from=builder /usr/local/bin/server /usr/local/bin/server
-COPY --from=builder /src/schema.sql /app/schema.sql
+WORKDIR /app
+
+# Copy source and pre-created DB from the builder stage so `go run .` can use them.
+COPY --from=builder /src /app
 COPY --from=builder /src/database.db /app/database.db
+
 # Ensure the `app` user can write to the database at runtime (signup, updates).
 RUN chown app:app /app/database.db && chmod 0644 /app/database.db
-WORKDIR /app
 USER app
 
 ENV PORT=8080
 EXPOSE 8080
 
-CMD ["/usr/local/bin/server"]
+CMD ["go","run","."]
