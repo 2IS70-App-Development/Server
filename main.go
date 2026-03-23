@@ -103,6 +103,7 @@ func main() {
 
 	mux.Handle("GET /auth/orders/scans", http.HandlerFunc(GetOrderScansEndpoint))
 	mux.Handle("POST /auth/orders/scan", http.HandlerFunc(CreateOrderScanEndpoint))
+    mux.Handle("GET /auth/scans", http.HandlerFunc(GetAllScansEndpoint))
 
 	mux.Handle("GET /auth/contacts", http.HandlerFunc(GetContactsEndpoint))
 	mux.Handle("POST /auth/contacts", http.HandlerFunc(AddContactEndpoint))

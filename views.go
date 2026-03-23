@@ -207,6 +207,23 @@ func GetOrderScansEndpoint(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, scans)
 }
 
+func GetAllScansEndpoint(w http.ResponseWriter, r *http.Request) {
+	user, ok := r.Context().Value(contextKeyUser).(*User)
+	if !ok || user == nil {
+		jsonError(w, "Unauthorized", http.StatusUnauthorized)
+		return
+	}
+
+	scans, err := GetAllScans()
+	if err != nil {
+		log.Printf("get all scans error: %v", err)
+		jsonError(w, "Could not fetch scans", http.StatusInternalServerError)
+		return
+	}
+
+	jsonResponse(w, scans)
+}
+
 type CreateOrderScanRequest struct {
 	OrderId     int     `json:"order_id"`
 	PhotoBase64 string  `json:"photo_base64"`

@@ -75,7 +75,7 @@ func CreateUser(email string, password string) (*User, error) {
 
 func GetOrders(userId int) (*[]Order, error) {
 	var orders []Order
-	rows, err := Db.Query("SELECT id, sender_id, receiver_id, name, status, meta, comment, created_at FROM orders WHERE sender_id = ? OR receiver_id = ?", userId, userId)
+	rows, err := Db.Query("SELECT id, sender_id, receiver_id, name, status, meta, comment, photo, created_at FROM orders WHERE sender_id = ? OR receiver_id = ?", userId, userId)
 	if err != nil {
 		return nil, err
 	}
@@ -143,6 +143,29 @@ func UpdateOrderStatus(id string, status string) (*Order, error) {
 func GetOrderScans(orderId string) ([]Scan, error) {
 	var scans []Scan
 	rows, err := Db.Query("SELECT id, order_id, courier_id, photo, condition, longitude, latitude, comment, created_at FROM scans WHERE order_id = ?", orderId)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var scan Scan
+		if err := rows.Scan(&scan.ID, &scan.OrderId, &scan.CourierId, &scan.Photo, &scan.Condition, &scan.Longitude, &scan.Latitude, &scan.Comment, &scan.CreatedAt); err != nil {
+			return nil, err
+		}
+		scans = append(scans, scan)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return scans, nil
+}
+
+func GetAllScans() ([]Scan, error) {
+	var scans []Scan
+	rows, err := Db.Query("SELECT id, order_id, courier_id, photo, condition, longitude, latitude, comment, created_at FROM scans")
 	if err != nil {
 		return nil, err
 	}
