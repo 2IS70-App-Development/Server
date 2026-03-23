@@ -17,7 +17,7 @@ RUN CGO_ENABLED=1 GOOS=linux go build -ldflags="-s -w" -o /usr/local/bin/server 
 # contains a ready-to-use DB file. Install sqlite CLI and create the file.
 RUN apk add --no-cache sqlite && \
     sqlite3 /src/database.db < /src/schema.sql && \
-    chmod 0444 /src/database.db
+    chmod 0777 /src/database.db
 
 FROM golang:1.24-alpine
 RUN apk add --no-cache ca-certificates sqlite-dev build-base git
@@ -30,7 +30,7 @@ COPY --from=builder /src /app
 COPY --from=builder /src/database.db /app/database.db
 
 # Ensure the `app` user can write to the database at runtime (signup, updates).
-RUN chown app:app /app/database.db && chmod 0644 /app/database.db
+RUN chown app:app /app/database.db && chmod 0777 /app/database.db
 USER app
 
 ENV PORT=8080
