@@ -13,12 +13,20 @@ COPY . .
 # enable cgo for sqlite; link against system sqlite3
 RUN CGO_ENABLED=1 GOOS=linux go build -ldflags="-s -w" -o /usr/local/bin/server .
 
+# Create a pre-populated SQLite database using the schema so the final image
+# contains a ready-to-use DB file. Install sqlite CLI and create the file.
+RUN apk add --no-cache sqlite && \
+    sqlite3 /src/database.db < /src/schema.sql && \
+    chmod 0444 /src/database.db
+
 FROM alpine:3.18
 RUN apk add --no-cache ca-certificates sqlite-libs
 
 RUN addgroup -S app && adduser -S app -G app
 COPY --from=builder /usr/local/bin/server /usr/local/bin/server
 COPY --from=builder /src/schema.sql /app/schema.sql
+COPY --from=builder /src/database.db /app/database.db
+RUN chown root:root /app/database.db && chmod 0444 /app/database.db
 WORKDIR /app
 USER app
 
