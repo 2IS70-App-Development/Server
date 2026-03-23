@@ -26,7 +26,8 @@ RUN addgroup -S app && adduser -S app -G app
 COPY --from=builder /usr/local/bin/server /usr/local/bin/server
 COPY --from=builder /src/schema.sql /app/schema.sql
 COPY --from=builder /src/database.db /app/database.db
-RUN chown root:root /app/database.db && chmod 0444 /app/database.db
+# Ensure the `app` user can write to the database at runtime (signup, updates).
+RUN chown app:app /app/database.db && chmod 0644 /app/database.db
 WORKDIR /app
 USER app
 
