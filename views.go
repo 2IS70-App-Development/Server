@@ -272,19 +272,15 @@ func CreateOrderScanEndpoint(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if order.Status == "cancelled" {
-		jsonError(w, "Cannot scan a cancelled order", http.StatusConflict)
-		return
-	}
-	if order.Status == "delivered" {
 		log.Printf("CreateOrderScanEndpoint: cannot scan cancelled order id=%d courier=%d", order.ID, courier.ID)
 		jsonError(w, "Cannot scan a cancelled order", http.StatusConflict)
 		return
 	}
-
+	if order.Status == "delivered" {
 		log.Printf("CreateOrderScanEndpoint: cannot scan delivered order id=%d courier=%d", order.ID, courier.ID)
 		jsonError(w, "Cannot scan a delivered order", http.StatusConflict)
-	if err != nil {
-		log.Printf("create order scan error: %v", err)
+		return
+	}
 
 	log.Printf("CreateOrderScanEndpoint: calling CreateOrderScan for order_id=%d courier=%d", req.OrderId, courier.ID)
 	err = CreateOrderScan(&req, courier)
@@ -298,7 +294,7 @@ func CreateOrderScanEndpoint(w http.ResponseWriter, r *http.Request) {
 	log.Printf("CreateOrderScanEndpoint: CreateOrderScan succeeded for order_id=%d courier=%d", req.OrderId, courier.ID)
 
 	if order.Status == "pending" {
-		_, err := UpdateOrderStatus(orderId, "in-transit")
+		_, err = UpdateOrderStatus(orderId, "in-transit")
 		if err != nil {
 			log.Printf("CreateOrderScanEndpoint: failed to update order status to in-transit for order_id=%d courier=%d: %v", order.ID, courier.ID, err)
 		} else {
