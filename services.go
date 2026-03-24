@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"log"
 	"strconv"
 	"time"
 
@@ -194,14 +195,27 @@ func GetAllScans() ([]Scan, error) {
 }
 
 func CreateOrderScan(data *CreateOrderScanRequest, courier *User) error {
+	// log input summary (avoid logging raw base64 content)
+	log.Printf("CreateOrderScan: start - order_id=%d courier_id=%d condition=%s lon=%f lat=%f comment_len=%d photo_b64_len=%d", data.OrderId, courier.ID, data.Condition, data.Longitude, data.Latitude, len(data.Comment), len(data.PhotoBase64))
+
 	photo, err := b64.RawStdEncoding.DecodeString(data.PhotoBase64)
 	if err != nil {
+		log.Printf("CreateOrderScan: base64 decode error for order_id=%d courier_id=%d: %v", data.OrderId, courier.ID, err)
 		return err
 	}
 
-	_, err = Db.Exec("INSERT INTO scans (order_id, courier_id, photo, condition, longitude, latitude, comment) VALUES(?, ?, ?, ?, ?, ?, ?)", data.OrderId, courier.ID, photo, data.Condition, data.Longitude, data.Latitude, data.Comment)
+	log.Printf("CreateOrderScan: decoded photo bytes=%d for order_id=%d", len(photo), data.OrderId)
+
+	res, err := Db.Exec("INSERT INTO scans (order_id, courier_id, photo, condition, longitude, latitude, comment) VALUES(?, ?, ?, ?, ?, ?, ?)", data.OrderId, courier.ID, photo, data.Condition, data.Longitude, data.Latitude, data.Comment)
 	if err != nil {
+		log.Printf("CreateOrderScan: DB insert error for order_id=%d courier_id=%d: %v", data.OrderId, courier.ID, err)
 		return err
+	}
+
+	if res != nil {
+		if id, err2 := res.LastInsertId(); err2 == nil {
+			log.Printf("CreateOrderScan: DB insert succeeded id=%d order_id=%d", id, data.OrderId)
+		}
 	}
 
 	return nil

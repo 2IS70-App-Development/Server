@@ -252,10 +252,13 @@ func CreateOrderScanEndpoint(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	log.Printf("CreateOrderScanEndpoint: start - courier_id=%d, order_id=%d, condition=%s, photo_len=%d", courier.ID, req.OrderId, req.Condition, len(req.PhotoBase64))
+
 	allowedConditions := map[string]bool{
 		"Good": true, "Damaged": true, "Missing": true,
 	}
 	if !allowedConditions[req.Condition] {
+		log.Printf("CreateOrderScanEndpoint: invalid condition %s for courier %d", req.Condition, courier.ID)
 		jsonError(w, "Invalid condition. Allowed: Good, Damaged, Missing", http.StatusBadRequest)
 		return
 	}
@@ -263,6 +266,7 @@ func CreateOrderScanEndpoint(w http.ResponseWriter, r *http.Request) {
 	orderId := fmt.Sprintf("%d", req.OrderId)
 	order, err := GetOrder(orderId)
 	if err != nil {
+		log.Printf("CreateOrderScanEndpoint: order not found id=%s courier=%d err=%v", orderId, courier.ID, err)
 		jsonError(w, "Order not found", http.StatusNotFound)
 		return
 	}
@@ -272,21 +276,33 @@ func CreateOrderScanEndpoint(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if order.Status == "delivered" {
-		jsonError(w, "Cannot scan a delivered order", http.StatusConflict)
+		log.Printf("CreateOrderScanEndpoint: cannot scan cancelled order id=%d courier=%d", order.ID, courier.ID)
+		jsonError(w, "Cannot scan a cancelled order", http.StatusConflict)
 		return
 	}
 
-	err = CreateOrderScan(&req, courier)
+		log.Printf("CreateOrderScanEndpoint: cannot scan delivered order id=%d courier=%d", order.ID, courier.ID)
+		jsonError(w, "Cannot scan a delivered order", http.StatusConflict)
 	if err != nil {
 		log.Printf("create order scan error: %v", err)
+
+	log.Printf("CreateOrderScanEndpoint: calling CreateOrderScan for order_id=%d courier=%d", req.OrderId, courier.ID)
+	err = CreateOrderScan(&req, courier)
+
+	if err != nil {
+		log.Printf("CreateOrderScanEndpoint: create order scan error: %v", err)
 		jsonError(w, "Could not create order scan", http.StatusInternalServerError)
 		return
 	}
 
+	log.Printf("CreateOrderScanEndpoint: CreateOrderScan succeeded for order_id=%d courier=%d", req.OrderId, courier.ID)
+
 	if order.Status == "pending" {
-		_, err = UpdateOrderStatus(orderId, "in-transit")
+		_, err := UpdateOrderStatus(orderId, "in-transit")
 		if err != nil {
-			log.Printf("auto status update error: %v", err)
+			log.Printf("CreateOrderScanEndpoint: failed to update order status to in-transit for order_id=%d courier=%d: %v", order.ID, courier.ID, err)
+		} else {
+			log.Printf("CreateOrderScanEndpoint: order status updated to in-transit for order_id=%d courier=%d", order.ID, courier.ID)
 		}
 	}
 
