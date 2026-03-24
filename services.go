@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"strconv"
+	"strings"
 	"time"
 
 	b64 "encoding/base64"
@@ -198,9 +199,8 @@ func CreateOrderScan(data *CreateOrderScanRequest, courier *User) error {
 	// log input summary (avoid logging raw base64 content)
 	log.Printf("CreateOrderScan: start - order_id=%d courier_id=%d condition=%s lon=%f lat=%f comment_len=%d photo_b64_len=%d", data.OrderId, courier.ID, data.Condition, data.Longitude, data.Latitude, len(data.Comment), len(data.PhotoBase64))
 
-	photo, err := b64.RawStdEncoding.DecodeString(data.PhotoBase64)
+	photo, err := decodeBase64(data.PhotoBase64, data.OrderId, courier.ID)
 	if err != nil {
-		log.Printf("CreateOrderScan: base64 decode error for order_id=%d courier_id=%d: %v", data.OrderId, courier.ID, err)
 		return err
 	}
 
@@ -219,6 +219,52 @@ func CreateOrderScan(data *CreateOrderScanRequest, courier *User) error {
 	}
 
 	return nil
+}
+
+// decodeBase64 accepts common base64 payload formats: data URLs, padded and unpadded variants,
+// and strips whitespace/newlines. It tries StdEncoding first, then RawStdEncoding, then URL encodings.
+func decodeBase64(s string, orderId int, courierId int) ([]byte, error) {
+	if s == "" {
+		return nil, errors.New("empty photo base64")
+	}
+
+	// strip possible data URL prefix: data:<mediatype>;base64,<data>
+	if idx := strings.Index(s, ","); idx != -1 && strings.HasPrefix(s, "data:") {
+		s = s[idx+1:]
+	}
+
+	s = strings.TrimSpace(s)
+	s = strings.ReplaceAll(s, "\n", "")
+	s = strings.ReplaceAll(s, "\r", "")
+	s = strings.ReplaceAll(s, " ", "")
+
+	// try standard padded base64 first
+	if decoded, err := b64.StdEncoding.DecodeString(s); err == nil {
+		return decoded, nil
+	} else {
+		log.Printf("decodeBase64: StdEncoding failed for order_id=%d courier_id=%d: %v", orderId, courierId, err)
+	}
+
+	// try raw (unpadded) standard encoding
+	if decoded, err := b64.RawStdEncoding.DecodeString(s); err == nil {
+		return decoded, nil
+	} else {
+		log.Printf("decodeBase64: RawStdEncoding failed for order_id=%d courier_id=%d: %v", orderId, courierId, err)
+	}
+
+	// try URL-safe encodings
+	if decoded, err := b64.URLEncoding.DecodeString(s); err == nil {
+		return decoded, nil
+	} else {
+		log.Printf("decodeBase64: URLEncoding failed for order_id=%d courier_id=%d: %v", orderId, courierId, err)
+	}
+	if decoded, err := b64.RawURLEncoding.DecodeString(s); err == nil {
+		return decoded, nil
+	} else {
+		log.Printf("decodeBase64: RawURLEncoding failed for order_id=%d courier_id=%d: %v", orderId, courierId, err)
+	}
+
+	return nil, fmt.Errorf("base64 decode failed for order %d courier %d", orderId, courierId)
 }
 
 // CreateActivity inserts a denormalized activity row.
