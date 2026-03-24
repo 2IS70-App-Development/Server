@@ -253,10 +253,10 @@ func CreateOrderScanEndpoint(w http.ResponseWriter, r *http.Request) {
 	}
 
 	allowedConditions := map[string]bool{
-		"good": true, "damaged": true, "missing": true,
+		"Good": true, "Damaged": true, "Missing": true,
 	}
 	if !allowedConditions[req.Condition] {
-		jsonError(w, "Invalid condition. Allowed: good, damaged, missing", http.StatusBadRequest)
+		jsonError(w, "Invalid condition. Allowed: Good, Damaged, Missing", http.StatusBadRequest)
 		return
 	}
 
