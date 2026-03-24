@@ -349,7 +349,7 @@ func Signup(w http.ResponseWriter, r *http.Request) {
 		}
 
 		if strings.Contains(err.Error(), "UNIQUE constraint failed") {
-			jsonError(w, "Email already exists", http.StatusConflict)
+			jsonError(w, "Username already exists", http.StatusConflict)
 			return
 		}
 
