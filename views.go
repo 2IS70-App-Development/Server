@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strconv"
 	"strings"
 )
 
@@ -172,8 +173,8 @@ func UpdateOrderStatusEndpoint(w http.ResponseWriter, r *http.Request) {
 
 	// create activity entries for sender and receiver (best-effort async)
 	go func() {
-		_ = CreateActivity(user.ID, updated.SenderId, "status_changed", fmt.Sprintf("Order %d status changed to %s", updated.ID, updated.Status))
-		_ = CreateActivity(user.ID, updated.ReceiverId, "status_changed", fmt.Sprintf("Order %d status changed to %s", updated.ID, updated.Status))
+		_ = CreateActivity(user.ID, updated.SenderId, "status_changed", fmt.Sprintf("Order %d status changed to %s by %s", updated.ID, updated.Status, user.Email))
+		_ = CreateActivity(user.ID, updated.ReceiverId, "status_changed", fmt.Sprintf("Order %d status changed to %s by %s", updated.ID, updated.Status, user.Email))
 	}()
 
 	jsonResponse(w, *updated)
@@ -305,8 +306,8 @@ func CreateOrderScanEndpoint(w http.ResponseWriter, r *http.Request) {
 	// create activity entries: for courier (self), and notify sender & receiver
 	go func() {
 		_ = CreateActivity(courier.ID, courier.ID, "scan_created", fmt.Sprintf("Scan created for order %d", req.OrderId))
-		_ = CreateActivity(courier.ID, order.SenderId, "scan_added", fmt.Sprintf("Order %d scanned by courier %d", req.OrderId, courier.ID))
-		_ = CreateActivity(courier.ID, order.ReceiverId, "scan_added", fmt.Sprintf("Order %d scanned by courier %d", req.OrderId, courier.ID))
+		_ = CreateActivity(courier.ID, order.SenderId, "scan_added", fmt.Sprintf("Order %d scanned by %s", req.OrderId, courier.Email))
+		_ = CreateActivity(courier.ID, order.ReceiverId, "scan_added", fmt.Sprintf("Order %d scanned by %s", req.OrderId, courier.Email))
 	}()
 
 	jsonResponse(w, "all good")

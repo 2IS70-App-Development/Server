@@ -133,8 +133,13 @@ func CreateOrderService(data *CreateOrder, sender *User) (*Order, error) {
 	// create denormalized activity entries for sender and receiver
 	go func() {
 		// best-effort async logging
-		_ = CreateActivity(sender.ID, sender.ID, "order_created", fmt.Sprintf("Created order %d to %d", newOrder.ID, data.ReceiverId))
-		_ = CreateActivity(sender.ID, data.ReceiverId, "order_received", fmt.Sprintf("Order %d created for you by %d", newOrder.ID, sender.ID))
+		receiver, err := GetUser(strconv.Itoa(data.ReceiverId))
+		receiverLabel := strconv.Itoa(data.ReceiverId)
+		if err == nil && receiver != nil {
+			receiverLabel = receiver.Email
+		}
+		_ = CreateActivity(sender.ID, sender.ID, "order_created", fmt.Sprintf("Created order %d to %s", newOrder.ID, receiverLabel))
+		_ = CreateActivity(sender.ID, data.ReceiverId, "order_received", fmt.Sprintf("Order %d created for you by %s", newOrder.ID, sender.Email))
 	}()
 
 	return &newOrder, nil
