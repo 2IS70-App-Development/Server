@@ -1,0 +1,686 @@
+{"Time":"2026-04-02T14:51:28.607583151+02:00","Action":"start","Package":"github.com/2IS70-App-Development"}
+{"Time":"2026-04-02T14:51:28.613354314+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestEnvOr"}
+{"Time":"2026-04-02T14:51:28.613380415+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestEnvOr","Output":"=== RUN   TestEnvOr\n"}
+{"Time":"2026-04-02T14:51:28.613418018+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestEnvOr","Output":"--- PASS: TestEnvOr (0.00s)\n"}
+{"Time":"2026-04-02T14:51:28.613422575+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestEnvOr","Elapsed":0}
+{"Time":"2026-04-02T14:51:28.613439676+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestJsonResponse"}
+{"Time":"2026-04-02T14:51:28.613441825+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJsonResponse","Output":"=== RUN   TestJsonResponse\n"}
+{"Time":"2026-04-02T14:51:28.613517269+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJsonResponse","Output":"--- PASS: TestJsonResponse (0.00s)\n"}
+{"Time":"2026-04-02T14:51:28.613520851+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestJsonResponse","Elapsed":0}
+{"Time":"2026-04-02T14:51:28.613528604+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestJsonError"}
+{"Time":"2026-04-02T14:51:28.613530414+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJsonError","Output":"=== RUN   TestJsonError\n"}
+{"Time":"2026-04-02T14:51:28.613574627+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJsonError","Output":"--- PASS: TestJsonError (0.00s)\n"}
+{"Time":"2026-04-02T14:51:28.613580521+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestJsonError","Elapsed":0}
+{"Time":"2026-04-02T14:51:28.613586046+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestLogsMiddleware"}
+{"Time":"2026-04-02T14:51:28.613592453+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestLogsMiddleware","Output":"=== RUN   TestLogsMiddleware\n"}
+{"Time":"2026-04-02T14:51:28.613688241+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestLogsMiddleware","Output":"2026/04/02 14:51:28 [GET] /test\n"}
+{"Time":"2026-04-02T14:51:28.61369217+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestLogsMiddleware","Output":"--- PASS: TestLogsMiddleware (0.00s)\n"}
+{"Time":"2026-04-02T14:51:28.613694811+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestLogsMiddleware","Elapsed":0}
+{"Time":"2026-04-02T14:51:28.61370548+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetUsersList"}
+{"Time":"2026-04-02T14:51:28.613711708+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUsersList","Output":"=== RUN   TestGetUsersList\n"}
+{"Time":"2026-04-02T14:51:28.676100161+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUsersList","Output":"--- PASS: TestGetUsersList (0.06s)\n"}
+{"Time":"2026-04-02T14:51:28.676120061+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetUsersList","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:28.67613279+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetUserDetails"}
+{"Time":"2026-04-02T14:51:28.676134942+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUserDetails","Output":"=== RUN   TestGetUserDetails\n"}
+{"Time":"2026-04-02T14:51:28.739012074+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUserDetails","Output":"--- PASS: TestGetUserDetails (0.06s)\n"}
+{"Time":"2026-04-02T14:51:28.739044468+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetUserDetails","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:28.739051045+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetUserDetails_NotFound"}
+{"Time":"2026-04-02T14:51:28.739062643+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUserDetails_NotFound","Output":"=== RUN   TestGetUserDetails_NotFound\n"}
+{"Time":"2026-04-02T14:51:28.739457528+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUserDetails_NotFound","Output":"--- PASS: TestGetUserDetails_NotFound (0.00s)\n"}
+{"Time":"2026-04-02T14:51:28.739463158+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetUserDetails_NotFound","Elapsed":0}
+{"Time":"2026-04-02T14:51:28.739466306+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetUserDetails_MissingId"}
+{"Time":"2026-04-02T14:51:28.739468962+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUserDetails_MissingId","Output":"=== RUN   TestGetUserDetails_MissingId\n"}
+{"Time":"2026-04-02T14:51:28.740183961+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUserDetails_MissingId","Output":"--- PASS: TestGetUserDetails_MissingId (0.00s)\n"}
+{"Time":"2026-04-02T14:51:28.740202941+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetUserDetails_MissingId","Elapsed":0}
+{"Time":"2026-04-02T14:51:28.740207923+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrdersList"}
+{"Time":"2026-04-02T14:51:28.740210486+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrdersList","Output":"=== RUN   TestGetOrdersList\n"}
+{"Time":"2026-04-02T14:51:28.839820775+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrdersList","Output":"--- PASS: TestGetOrdersList (0.10s)\n"}
+{"Time":"2026-04-02T14:51:28.839850755+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrdersList","Elapsed":0.1}
+{"Time":"2026-04-02T14:51:28.839869393+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderDetails"}
+{"Time":"2026-04-02T14:51:28.839871405+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderDetails","Output":"=== RUN   TestGetOrderDetails\n"}
+{"Time":"2026-04-02T14:51:28.943905928+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderDetails","Output":"--- PASS: TestGetOrderDetails (0.10s)\n"}
+{"Time":"2026-04-02T14:51:28.943941439+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderDetails","Elapsed":0.1}
+{"Time":"2026-04-02T14:51:28.943947145+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderDetails_NotFound"}
+{"Time":"2026-04-02T14:51:28.943949538+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderDetails_NotFound","Output":"=== RUN   TestGetOrderDetails_NotFound\n"}
+{"Time":"2026-04-02T14:51:28.944410896+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderDetails_NotFound","Output":"--- PASS: TestGetOrderDetails_NotFound (0.00s)\n"}
+{"Time":"2026-04-02T14:51:28.944424914+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderDetails_NotFound","Elapsed":0}
+{"Time":"2026-04-02T14:51:28.944428576+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint"}
+{"Time":"2026-04-02T14:51:28.944430626+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint","Output":"=== RUN   TestCreateOrderEndpoint\n"}
+{"Time":"2026-04-02T14:51:29.046212107+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint","Output":"--- PASS: TestCreateOrderEndpoint (0.10s)\n"}
+{"Time":"2026-04-02T14:51:29.046250748+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint","Elapsed":0.1}
+{"Time":"2026-04-02T14:51:29.046266112+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_InvalidBody"}
+{"Time":"2026-04-02T14:51:29.046269091+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_InvalidBody","Output":"=== RUN   TestCreateOrderEndpoint_InvalidBody\n"}
+{"Time":"2026-04-02T14:51:29.103909486+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_InvalidBody","Output":"--- PASS: TestCreateOrderEndpoint_InvalidBody (0.06s)\n"}
+{"Time":"2026-04-02T14:51:29.103937981+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_InvalidBody","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:29.103946+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_EmptyName"}
+{"Time":"2026-04-02T14:51:29.103956136+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_EmptyName","Output":"=== RUN   TestCreateOrderEndpoint_EmptyName\n"}
+{"Time":"2026-04-02T14:51:29.206969599+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_EmptyName","Output":"--- PASS: TestCreateOrderEndpoint_EmptyName (0.10s)\n"}
+{"Time":"2026-04-02T14:51:29.207003151+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_EmptyName","Elapsed":0.1}
+{"Time":"2026-04-02T14:51:29.207008465+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_ReceiverNotFound"}
+{"Time":"2026-04-02T14:51:29.207010639+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_ReceiverNotFound","Output":"=== RUN   TestCreateOrderEndpoint_ReceiverNotFound\n"}
+{"Time":"2026-04-02T14:51:29.254870622+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_ReceiverNotFound","Output":"--- PASS: TestCreateOrderEndpoint_ReceiverNotFound (0.05s)\n"}
+{"Time":"2026-04-02T14:51:29.254896017+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_ReceiverNotFound","Elapsed":0.05}
+{"Time":"2026-04-02T14:51:29.254900829+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_SelfOrder"}
+{"Time":"2026-04-02T14:51:29.254902746+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_SelfOrder","Output":"=== RUN   TestCreateOrderEndpoint_SelfOrder\n"}
+{"Time":"2026-04-02T14:51:29.304560547+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_SelfOrder","Output":"--- PASS: TestCreateOrderEndpoint_SelfOrder (0.05s)\n"}
+{"Time":"2026-04-02T14:51:29.30457917+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_SelfOrder","Elapsed":0.05}
+{"Time":"2026-04-02T14:51:29.304583391+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderService"}
+{"Time":"2026-04-02T14:51:29.304585323+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderService","Output":"=== RUN   TestCreateOrderService\n"}
+{"Time":"2026-04-02T14:51:29.406548441+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderService","Output":"--- PASS: TestCreateOrderService (0.10s)\n"}
+{"Time":"2026-04-02T14:51:29.406583687+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderService","Elapsed":0.1}
+{"Time":"2026-04-02T14:51:29.406601864+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderService_WithPhoto"}
+{"Time":"2026-04-02T14:51:29.406603652+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderService_WithPhoto","Output":"=== RUN   TestCreateOrderService_WithPhoto\n"}
+{"Time":"2026-04-02T14:51:29.500977976+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderService_WithPhoto","Output":"--- PASS: TestCreateOrderService_WithPhoto (0.09s)\n"}
+{"Time":"2026-04-02T14:51:29.501004972+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderService_WithPhoto","Elapsed":0.09}
+{"Time":"2026-04-02T14:51:29.501009355+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderService_InvalidBase64"}
+{"Time":"2026-04-02T14:51:29.501010868+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderService_InvalidBase64","Output":"=== RUN   TestCreateOrderService_InvalidBase64\n"}
+{"Time":"2026-04-02T14:51:29.604448126+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderService_InvalidBase64","Output":"--- PASS: TestCreateOrderService_InvalidBase64 (0.10s)\n"}
+{"Time":"2026-04-02T14:51:29.604484832+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderService_InvalidBase64","Elapsed":0.1}
+{"Time":"2026-04-02T14:51:29.604496416+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint"}
+{"Time":"2026-04-02T14:51:29.604501379+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint","Output":"=== RUN   TestUpdateOrderStatusEndpoint\n"}
+{"Time":"2026-04-02T14:51:29.698387204+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint","Output":"--- PASS: TestUpdateOrderStatusEndpoint (0.09s)\n"}
+{"Time":"2026-04-02T14:51:29.698404324+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint","Elapsed":0.09}
+{"Time":"2026-04-02T14:51:29.698411123+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_Unauthorized"}
+{"Time":"2026-04-02T14:51:29.698413841+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_Unauthorized","Output":"=== RUN   TestUpdateOrderStatusEndpoint_Unauthorized\n"}
+{"Time":"2026-04-02T14:51:29.698419962+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_Unauthorized","Output":"--- PASS: TestUpdateOrderStatusEndpoint_Unauthorized (0.00s)\n"}
+{"Time":"2026-04-02T14:51:29.698422875+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_Unauthorized","Elapsed":0}
+{"Time":"2026-04-02T14:51:29.698426064+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_InvalidBody"}
+{"Time":"2026-04-02T14:51:29.698428373+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_InvalidBody","Output":"=== RUN   TestUpdateOrderStatusEndpoint_InvalidBody\n"}
+{"Time":"2026-04-02T14:51:29.753758629+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_InvalidBody","Output":"--- PASS: TestUpdateOrderStatusEndpoint_InvalidBody (0.06s)\n"}
+{"Time":"2026-04-02T14:51:29.753786446+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_InvalidBody","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:29.753792804+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_InvalidStatus"}
+{"Time":"2026-04-02T14:51:29.753794755+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_InvalidStatus","Output":"=== RUN   TestUpdateOrderStatusEndpoint_InvalidStatus\n"}
+{"Time":"2026-04-02T14:51:29.850855413+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_InvalidStatus","Output":"--- PASS: TestUpdateOrderStatusEndpoint_InvalidStatus (0.10s)\n"}
+{"Time":"2026-04-02T14:51:29.850901216+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_InvalidStatus","Elapsed":0.1}
+{"Time":"2026-04-02T14:51:29.8509152+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_OrderNotFound"}
+{"Time":"2026-04-02T14:51:29.850923+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_OrderNotFound","Output":"=== RUN   TestUpdateOrderStatusEndpoint_OrderNotFound\n"}
+{"Time":"2026-04-02T14:51:29.906977988+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_OrderNotFound","Output":"--- PASS: TestUpdateOrderStatusEndpoint_OrderNotFound (0.06s)\n"}
+{"Time":"2026-04-02T14:51:29.90704389+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_OrderNotFound","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:29.907054264+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_Forbidden"}
+{"Time":"2026-04-02T14:51:29.907060263+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_Forbidden","Output":"=== RUN   TestUpdateOrderStatusEndpoint_Forbidden\n"}
+{"Time":"2026-04-02T14:51:30.050651272+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_Forbidden","Output":"--- PASS: TestUpdateOrderStatusEndpoint_Forbidden (0.14s)\n"}
+{"Time":"2026-04-02T14:51:30.050700736+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_Forbidden","Elapsed":0.14}
+{"Time":"2026-04-02T14:51:30.05071488+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_CancelledOrder"}
+{"Time":"2026-04-02T14:51:30.05072038+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_CancelledOrder","Output":"=== RUN   TestUpdateOrderStatusEndpoint_CancelledOrder\n"}
+{"Time":"2026-04-02T14:51:30.142878168+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_CancelledOrder","Output":"--- PASS: TestUpdateOrderStatusEndpoint_CancelledOrder (0.09s)\n"}
+{"Time":"2026-04-02T14:51:30.142903809+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_CancelledOrder","Elapsed":0.09}
+{"Time":"2026-04-02T14:51:30.142910972+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_DeliveredOrder"}
+{"Time":"2026-04-02T14:51:30.142913957+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_DeliveredOrder","Output":"=== RUN   TestUpdateOrderStatusEndpoint_DeliveredOrder\n"}
+{"Time":"2026-04-02T14:51:30.248200426+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_DeliveredOrder","Output":"--- PASS: TestUpdateOrderStatusEndpoint_DeliveredOrder (0.11s)\n"}
+{"Time":"2026-04-02T14:51:30.248234253+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_DeliveredOrder","Elapsed":0.11}
+{"Time":"2026-04-02T14:51:30.248247219+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatus"}
+{"Time":"2026-04-02T14:51:30.248252791+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatus","Output":"=== RUN   TestUpdateOrderStatus\n"}
+{"Time":"2026-04-02T14:51:30.346961791+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatus","Output":"--- PASS: TestUpdateOrderStatus (0.10s)\n"}
+{"Time":"2026-04-02T14:51:30.347002648+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatus","Elapsed":0.1}
+{"Time":"2026-04-02T14:51:30.34701273+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatus_NotFound"}
+{"Time":"2026-04-02T14:51:30.347027029+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatus_NotFound","Output":"=== RUN   TestUpdateOrderStatus_NotFound\n"}
+{"Time":"2026-04-02T14:51:30.349912339+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatus_NotFound","Output":"--- PASS: TestUpdateOrderStatus_NotFound (0.00s)\n"}
+{"Time":"2026-04-02T14:51:30.349921717+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatus_NotFound","Elapsed":0}
+{"Time":"2026-04-02T14:51:30.349928151+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScansEndpoint"}
+{"Time":"2026-04-02T14:51:30.349931353+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScansEndpoint","Output":"=== RUN   TestGetOrderScansEndpoint\n"}
+{"Time":"2026-04-02T14:51:30.453875793+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScansEndpoint","Output":"--- PASS: TestGetOrderScansEndpoint (0.10s)\n"}
+{"Time":"2026-04-02T14:51:30.453905351+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScansEndpoint","Elapsed":0.1}
+{"Time":"2026-04-02T14:51:30.453910085+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScansEndpoint_MissingOrderId"}
+{"Time":"2026-04-02T14:51:30.453911833+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScansEndpoint_MissingOrderId","Output":"=== RUN   TestGetOrderScansEndpoint_MissingOrderId\n"}
+{"Time":"2026-04-02T14:51:30.509917975+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScansEndpoint_MissingOrderId","Output":"--- PASS: TestGetOrderScansEndpoint_MissingOrderId (0.06s)\n"}
+{"Time":"2026-04-02T14:51:30.509946128+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScansEndpoint_MissingOrderId","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:30.509950876+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScansEndpoint_OrderNotFound"}
+{"Time":"2026-04-02T14:51:30.509952904+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScansEndpoint_OrderNotFound","Output":"=== RUN   TestGetOrderScansEndpoint_OrderNotFound\n"}
+{"Time":"2026-04-02T14:51:30.556631649+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScansEndpoint_OrderNotFound","Output":"--- PASS: TestGetOrderScansEndpoint_OrderNotFound (0.05s)\n"}
+{"Time":"2026-04-02T14:51:30.556652508+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScansEndpoint_OrderNotFound","Elapsed":0.05}
+{"Time":"2026-04-02T14:51:30.556657769+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScansEndpoint_Forbidden"}
+{"Time":"2026-04-02T14:51:30.556659841+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScansEndpoint_Forbidden","Output":"=== RUN   TestGetOrderScansEndpoint_Forbidden\n"}
+{"Time":"2026-04-02T14:51:30.710941889+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScansEndpoint_Forbidden","Output":"--- PASS: TestGetOrderScansEndpoint_Forbidden (0.15s)\n"}
+{"Time":"2026-04-02T14:51:30.710985148+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScansEndpoint_Forbidden","Elapsed":0.15}
+{"Time":"2026-04-02T14:51:30.710993488+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScansEndpoint"}
+{"Time":"2026-04-02T14:51:30.710998825+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScansEndpoint","Output":"=== RUN   TestGetAllScansEndpoint\n"}
+{"Time":"2026-04-02T14:51:30.757831451+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScansEndpoint","Output":"--- PASS: TestGetAllScansEndpoint (0.05s)\n"}
+{"Time":"2026-04-02T14:51:30.757861409+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScansEndpoint","Elapsed":0.05}
+{"Time":"2026-04-02T14:51:30.757866755+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint"}
+{"Time":"2026-04-02T14:51:30.757868979+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint","Output":"=== RUN   TestCreateOrderScanEndpoint\n"}
+{"Time":"2026-04-02T14:51:30.904945863+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint","Output":"2026/04/02 14:51:30 CreateOrderScanEndpoint: start - courier_id=1, order_id=1, condition=Good, photo_len=16\n"}
+{"Time":"2026-04-02T14:51:30.906227011+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint","Output":"2026/04/02 14:51:30 CreateOrderScanEndpoint: calling CreateOrderScan for order_id=1 courier=1\n"}
+{"Time":"2026-04-02T14:51:30.906239599+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint","Output":"2026/04/02 14:51:30 CreateOrderScan: start - order_id=1 courier_id=1 condition=Good lon=1.234000 lat=5.678000 comment_len=9 photo_b64_len=16\n"}
+{"Time":"2026-04-02T14:51:30.906242535+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint","Output":"2026/04/02 14:51:30 CreateOrderScan: decoded photo bytes=11 for order_id=1\n"}
+{"Time":"2026-04-02T14:51:30.906246446+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint","Output":"2026/04/02 14:51:30 CreateOrderScan: DB insert succeeded id=1 order_id=1\n"}
+{"Time":"2026-04-02T14:51:30.906248146+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint","Output":"2026/04/02 14:51:30 CreateOrderScanEndpoint: CreateOrderScan succeeded for order_id=1 courier=1\n"}
+{"Time":"2026-04-02T14:51:30.906249851+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint","Output":"2026/04/02 14:51:30 CreateOrderScanEndpoint: order status updated to in-transit for order_id=1 courier=1\n"}
+{"Time":"2026-04-02T14:51:30.906432782+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint","Output":"--- PASS: TestCreateOrderScanEndpoint (0.15s)\n"}
+{"Time":"2026-04-02T14:51:30.906445201+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint","Elapsed":0.15}
+{"Time":"2026-04-02T14:51:30.906463939+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_InvalidBody"}
+{"Time":"2026-04-02T14:51:30.906465891+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_InvalidBody","Output":"=== RUN   TestCreateOrderScanEndpoint_InvalidBody\n"}
+{"Time":"2026-04-02T14:51:30.952566131+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_InvalidBody","Output":"--- PASS: TestCreateOrderScanEndpoint_InvalidBody (0.05s)\n"}
+{"Time":"2026-04-02T14:51:30.952577611+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_InvalidBody","Elapsed":0.05}
+{"Time":"2026-04-02T14:51:30.952581002+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_InvalidCondition"}
+{"Time":"2026-04-02T14:51:30.952582735+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_InvalidCondition","Output":"=== RUN   TestCreateOrderScanEndpoint_InvalidCondition\n"}
+{"Time":"2026-04-02T14:51:31.10152572+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_InvalidCondition","Output":"2026/04/02 14:51:31 CreateOrderScanEndpoint: start - courier_id=1, order_id=1, condition=Invalid, photo_len=16\n"}
+{"Time":"2026-04-02T14:51:31.10157425+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_InvalidCondition","Output":"2026/04/02 14:51:31 CreateOrderScanEndpoint: invalid condition Invalid for courier 1\n"}
+{"Time":"2026-04-02T14:51:31.101608066+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_InvalidCondition","Output":"--- PASS: TestCreateOrderScanEndpoint_InvalidCondition (0.15s)\n"}
+{"Time":"2026-04-02T14:51:31.101611239+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_InvalidCondition","Elapsed":0.15}
+{"Time":"2026-04-02T14:51:31.101616907+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_OrderNotFound"}
+{"Time":"2026-04-02T14:51:31.10161994+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_OrderNotFound","Output":"=== RUN   TestCreateOrderScanEndpoint_OrderNotFound\n"}
+{"Time":"2026-04-02T14:51:31.148790099+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_OrderNotFound","Output":"2026/04/02 14:51:31 CreateOrderScanEndpoint: start - courier_id=1, order_id=999, condition=Good, photo_len=16\n"}
+{"Time":"2026-04-02T14:51:31.148803096+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_OrderNotFound","Output":"2026/04/02 14:51:31 CreateOrderScanEndpoint: order not found id=999 courier=1 err=sql: no rows in result set\n"}
+{"Time":"2026-04-02T14:51:31.148807881+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_OrderNotFound","Output":"--- PASS: TestCreateOrderScanEndpoint_OrderNotFound (0.05s)\n"}
+{"Time":"2026-04-02T14:51:31.14882123+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_OrderNotFound","Elapsed":0.05}
+{"Time":"2026-04-02T14:51:31.148970424+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_CancelledOrder"}
+{"Time":"2026-04-02T14:51:31.148981877+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_CancelledOrder","Output":"=== RUN   TestCreateOrderScanEndpoint_CancelledOrder\n"}
+{"Time":"2026-04-02T14:51:31.310294489+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_CancelledOrder","Output":"2026/04/02 14:51:31 CreateOrderScanEndpoint: start - courier_id=1, order_id=1, condition=Good, photo_len=16\n"}
+{"Time":"2026-04-02T14:51:31.310325793+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_CancelledOrder","Output":"2026/04/02 14:51:31 CreateOrderScanEndpoint: cannot scan cancelled order id=1 courier=1\n"}
+{"Time":"2026-04-02T14:51:31.31033369+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_CancelledOrder","Output":"--- PASS: TestCreateOrderScanEndpoint_CancelledOrder (0.16s)\n"}
+{"Time":"2026-04-02T14:51:31.310336176+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_CancelledOrder","Elapsed":0.16}
+{"Time":"2026-04-02T14:51:31.310341026+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_DeliveredOrder"}
+{"Time":"2026-04-02T14:51:31.310342614+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_DeliveredOrder","Output":"=== RUN   TestCreateOrderScanEndpoint_DeliveredOrder\n"}
+{"Time":"2026-04-02T14:51:31.461744138+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_DeliveredOrder","Output":"2026/04/02 14:51:31 CreateOrderScanEndpoint: start - courier_id=1, order_id=1, condition=Good, photo_len=16\n"}
+{"Time":"2026-04-02T14:51:31.461809252+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_DeliveredOrder","Output":"2026/04/02 14:51:31 CreateOrderScanEndpoint: cannot scan delivered order id=1 courier=1\n"}
+{"Time":"2026-04-02T14:51:31.461820943+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_DeliveredOrder","Output":"--- PASS: TestCreateOrderScanEndpoint_DeliveredOrder (0.15s)\n"}
+{"Time":"2026-04-02T14:51:31.461826477+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_DeliveredOrder","Elapsed":0.15}
+{"Time":"2026-04-02T14:51:31.461841017+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_PendingOrderUpdatesStatus"}
+{"Time":"2026-04-02T14:51:31.461843538+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_PendingOrderUpdatesStatus","Output":"=== RUN   TestCreateOrderScanEndpoint_PendingOrderUpdatesStatus\n"}
+{"Time":"2026-04-02T14:51:31.614028247+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_PendingOrderUpdatesStatus","Output":"2026/04/02 14:51:31 CreateOrderScanEndpoint: start - courier_id=1, order_id=1, condition=Good, photo_len=16\n"}
+{"Time":"2026-04-02T14:51:31.614061007+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_PendingOrderUpdatesStatus","Output":"2026/04/02 14:51:31 CreateOrderScanEndpoint: calling CreateOrderScan for order_id=1 courier=1\n"}
+{"Time":"2026-04-02T14:51:31.614063968+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_PendingOrderUpdatesStatus","Output":"2026/04/02 14:51:31 CreateOrderScan: start - order_id=1 courier_id=1 condition=Good lon=0.000000 lat=0.000000 comment_len=0 photo_b64_len=16\n"}
+{"Time":"2026-04-02T14:51:31.614065678+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_PendingOrderUpdatesStatus","Output":"2026/04/02 14:51:31 CreateOrderScan: decoded photo bytes=11 for order_id=1\n"}
+{"Time":"2026-04-02T14:51:31.617447143+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_PendingOrderUpdatesStatus","Output":"2026/04/02 14:51:31 CreateOrderScan: DB insert succeeded id=1 order_id=1\n"}
+{"Time":"2026-04-02T14:51:31.617458077+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_PendingOrderUpdatesStatus","Output":"2026/04/02 14:51:31 CreateOrderScanEndpoint: CreateOrderScan succeeded for order_id=1 courier=1\n"}
+{"Time":"2026-04-02T14:51:31.617460712+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_PendingOrderUpdatesStatus","Output":"2026/04/02 14:51:31 CreateOrderScanEndpoint: order status updated to in-transit for order_id=1 courier=1\n"}
+{"Time":"2026-04-02T14:51:31.617476659+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_PendingOrderUpdatesStatus","Output":"--- PASS: TestCreateOrderScanEndpoint_PendingOrderUpdatesStatus (0.16s)\n"}
+{"Time":"2026-04-02T14:51:31.61747941+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_PendingOrderUpdatesStatus","Elapsed":0.16}
+{"Time":"2026-04-02T14:51:31.617487303+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan"}
+{"Time":"2026-04-02T14:51:31.61748923+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan","Output":"=== RUN   TestCreateOrderScan\n"}
+{"Time":"2026-04-02T14:51:31.772016232+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan","Output":"2026/04/02 14:51:31 CreateOrderScan: start - order_id=1 courier_id=1 condition=Good lon=1.234000 lat=5.678000 comment_len=12 photo_b64_len=16\n"}
+{"Time":"2026-04-02T14:51:31.772069418+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan","Output":"2026/04/02 14:51:31 CreateOrderScan: decoded photo bytes=11 for order_id=1\n"}
+{"Time":"2026-04-02T14:51:31.772079824+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan","Output":"2026/04/02 14:51:31 CreateOrderScan: DB insert succeeded id=1 order_id=1\n"}
+{"Time":"2026-04-02T14:51:31.77212161+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan","Output":"--- PASS: TestCreateOrderScan (0.15s)\n"}
+{"Time":"2026-04-02T14:51:31.772130648+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan","Elapsed":0.15}
+{"Time":"2026-04-02T14:51:31.772141716+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_EmptyBase64"}
+{"Time":"2026-04-02T14:51:31.772146156+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_EmptyBase64","Output":"=== RUN   TestCreateOrderScan_EmptyBase64\n"}
+{"Time":"2026-04-02T14:51:31.924137153+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_EmptyBase64","Output":"2026/04/02 14:51:31 CreateOrderScan: start - order_id=1 courier_id=1 condition=Good lon=1.234000 lat=5.678000 comment_len=12 photo_b64_len=0\n"}
+{"Time":"2026-04-02T14:51:31.924188156+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_EmptyBase64","Output":"--- PASS: TestCreateOrderScan_EmptyBase64 (0.15s)\n"}
+{"Time":"2026-04-02T14:51:31.9241971+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_EmptyBase64","Elapsed":0.15}
+{"Time":"2026-04-02T14:51:31.924204666+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_InvalidBase64"}
+{"Time":"2026-04-02T14:51:31.924212864+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_InvalidBase64","Output":"=== RUN   TestCreateOrderScan_InvalidBase64\n"}
+{"Time":"2026-04-02T14:51:32.072211598+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_InvalidBase64","Output":"2026/04/02 14:51:32 CreateOrderScan: start - order_id=1 courier_id=1 condition=Good lon=0.000000 lat=0.000000 comment_len=0 photo_b64_len=10\n"}
+{"Time":"2026-04-02T14:51:32.072254802+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_InvalidBase64","Output":"2026/04/02 14:51:32 decodeBase64: StdEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 7\n"}
+{"Time":"2026-04-02T14:51:32.072261637+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_InvalidBase64","Output":"2026/04/02 14:51:32 decodeBase64: RawStdEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 7\n"}
+{"Time":"2026-04-02T14:51:32.072266175+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_InvalidBase64","Output":"2026/04/02 14:51:32 decodeBase64: URLEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 7\n"}
+{"Time":"2026-04-02T14:51:32.072270461+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_InvalidBase64","Output":"2026/04/02 14:51:32 decodeBase64: RawURLEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 7\n"}
+{"Time":"2026-04-02T14:51:32.072283113+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_InvalidBase64","Output":"--- PASS: TestCreateOrderScan_InvalidBase64 (0.15s)\n"}
+{"Time":"2026-04-02T14:51:32.072289181+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_InvalidBase64","Elapsed":0.15}
+{"Time":"2026-04-02T14:51:32.072309379+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64"}
+{"Time":"2026-04-02T14:51:32.072313711+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64","Output":"=== RUN   TestDecodeBase64\n"}
+{"Time":"2026-04-02T14:51:32.072318905+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/StdEncoding"}
+{"Time":"2026-04-02T14:51:32.072322848+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/StdEncoding","Output":"=== RUN   TestDecodeBase64/StdEncoding\n"}
+{"Time":"2026-04-02T14:51:32.072329967+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/StdEncoding","Output":"--- PASS: TestDecodeBase64/StdEncoding (0.00s)\n"}
+{"Time":"2026-04-02T14:51:32.072335036+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/StdEncoding","Elapsed":0}
+{"Time":"2026-04-02T14:51:32.072339788+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/RawStdEncoding"}
+{"Time":"2026-04-02T14:51:32.072343578+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/RawStdEncoding","Output":"=== RUN   TestDecodeBase64/RawStdEncoding\n"}
+{"Time":"2026-04-02T14:51:32.072347776+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/RawStdEncoding","Output":"2026/04/02 14:51:32 decodeBase64: StdEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 12\n"}
+{"Time":"2026-04-02T14:51:32.072356646+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/RawStdEncoding","Output":"--- PASS: TestDecodeBase64/RawStdEncoding (0.00s)\n"}
+{"Time":"2026-04-02T14:51:32.072361105+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/RawStdEncoding","Elapsed":0}
+{"Time":"2026-04-02T14:51:32.07236563+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/URLEncoding"}
+{"Time":"2026-04-02T14:51:32.072369365+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/URLEncoding","Output":"=== RUN   TestDecodeBase64/URLEncoding\n"}
+{"Time":"2026-04-02T14:51:32.072373917+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/URLEncoding","Output":"--- PASS: TestDecodeBase64/URLEncoding (0.00s)\n"}
+{"Time":"2026-04-02T14:51:32.072378331+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/URLEncoding","Elapsed":0}
+{"Time":"2026-04-02T14:51:32.072385147+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/RawURLEncoding"}
+{"Time":"2026-04-02T14:51:32.072544126+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/RawURLEncoding","Output":"=== RUN   TestDecodeBase64/RawURLEncoding\n"}
+{"Time":"2026-04-02T14:51:32.072549291+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/RawURLEncoding","Output":"2026/04/02 14:51:32 decodeBase64: StdEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 12\n"}
+{"Time":"2026-04-02T14:51:32.072577061+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/RawURLEncoding","Output":"--- PASS: TestDecodeBase64/RawURLEncoding (0.00s)\n"}
+{"Time":"2026-04-02T14:51:32.072581619+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/RawURLEncoding","Elapsed":0}
+{"Time":"2026-04-02T14:51:32.072585835+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/DataURL"}
+{"Time":"2026-04-02T14:51:32.072589317+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/DataURL","Output":"=== RUN   TestDecodeBase64/DataURL\n"}
+{"Time":"2026-04-02T14:51:32.072598222+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/DataURL","Output":"--- PASS: TestDecodeBase64/DataURL (0.00s)\n"}
+{"Time":"2026-04-02T14:51:32.072602698+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/DataURL","Elapsed":0}
+{"Time":"2026-04-02T14:51:32.07260658+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/WithSpaces"}
+{"Time":"2026-04-02T14:51:32.07261096+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/WithSpaces","Output":"=== RUN   TestDecodeBase64/WithSpaces\n"}
+{"Time":"2026-04-02T14:51:32.072616401+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/WithSpaces","Output":"--- PASS: TestDecodeBase64/WithSpaces (0.00s)\n"}
+{"Time":"2026-04-02T14:51:32.072620479+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/WithSpaces","Elapsed":0}
+{"Time":"2026-04-02T14:51:32.072624311+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/WithNewlines"}
+{"Time":"2026-04-02T14:51:32.072628113+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/WithNewlines","Output":"=== RUN   TestDecodeBase64/WithNewlines\n"}
+{"Time":"2026-04-02T14:51:32.072632688+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/WithNewlines","Output":"--- PASS: TestDecodeBase64/WithNewlines (0.00s)\n"}
+{"Time":"2026-04-02T14:51:32.07263707+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/WithNewlines","Elapsed":0}
+{"Time":"2026-04-02T14:51:32.072640904+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/Empty"}
+{"Time":"2026-04-02T14:51:32.072644309+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/Empty","Output":"=== RUN   TestDecodeBase64/Empty\n"}
+{"Time":"2026-04-02T14:51:32.072650874+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/Empty","Output":"--- PASS: TestDecodeBase64/Empty (0.00s)\n"}
+{"Time":"2026-04-02T14:51:32.072655917+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/Empty","Elapsed":0}
+{"Time":"2026-04-02T14:51:32.072659809+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/Invalid"}
+{"Time":"2026-04-02T14:51:32.072663666+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/Invalid","Output":"=== RUN   TestDecodeBase64/Invalid\n"}
+{"Time":"2026-04-02T14:51:32.07266771+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/Invalid","Output":"2026/04/02 14:51:32 decodeBase64: StdEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 7\n"}
+{"Time":"2026-04-02T14:51:32.07267373+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/Invalid","Output":"2026/04/02 14:51:32 decodeBase64: RawStdEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 7\n"}
+{"Time":"2026-04-02T14:51:32.072678049+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/Invalid","Output":"2026/04/02 14:51:32 decodeBase64: URLEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 7\n"}
+{"Time":"2026-04-02T14:51:32.072682039+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/Invalid","Output":"2026/04/02 14:51:32 decodeBase64: RawURLEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 7\n"}
+{"Time":"2026-04-02T14:51:32.072699634+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/Invalid","Output":"--- PASS: TestDecodeBase64/Invalid (0.00s)\n"}
+{"Time":"2026-04-02T14:51:32.072705291+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64/Invalid","Elapsed":0}
+{"Time":"2026-04-02T14:51:32.072709906+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64","Output":"--- PASS: TestDecodeBase64 (0.00s)\n"}
+{"Time":"2026-04-02T14:51:32.072715179+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64","Elapsed":0}
+{"Time":"2026-04-02T14:51:32.072719315+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans"}
+{"Time":"2026-04-02T14:51:32.072722797+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans","Output":"=== RUN   TestGetOrderScans\n"}
+{"Time":"2026-04-02T14:51:32.223582008+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans","Output":"2026/04/02 14:51:32 CreateOrderScan: start - order_id=1 courier_id=1 condition=Good lon=0.000000 lat=0.000000 comment_len=0 photo_b64_len=16\n"}
+{"Time":"2026-04-02T14:51:32.223628571+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans","Output":"2026/04/02 14:51:32 CreateOrderScan: decoded photo bytes=11 for order_id=1\n"}
+{"Time":"2026-04-02T14:51:32.223635861+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans","Output":"2026/04/02 14:51:32 CreateOrderScan: DB insert succeeded id=1 order_id=1\n"}
+{"Time":"2026-04-02T14:51:32.223649436+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans","Output":"--- PASS: TestGetOrderScans (0.15s)\n"}
+{"Time":"2026-04-02T14:51:32.223654268+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans","Elapsed":0.15}
+{"Time":"2026-04-02T14:51:32.223679093+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans"}
+{"Time":"2026-04-02T14:51:32.223697062+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans","Output":"=== RUN   TestGetAllScans\n"}
+{"Time":"2026-04-02T14:51:32.401259904+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans","Output":"2026/04/02 14:51:32 CreateOrderScan: start - order_id=1 courier_id=1 condition=Good lon=0.000000 lat=0.000000 comment_len=0 photo_b64_len=16\n"}
+{"Time":"2026-04-02T14:51:32.40134784+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans","Output":"2026/04/02 14:51:32 CreateOrderScan: decoded photo bytes=11 for order_id=1\n"}
+{"Time":"2026-04-02T14:51:32.40135864+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans","Output":"2026/04/02 14:51:32 CreateOrderScan: DB insert succeeded id=1 order_id=1\n"}
+{"Time":"2026-04-02T14:51:32.401373448+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans","Output":"--- PASS: TestGetAllScans (0.18s)\n"}
+{"Time":"2026-04-02T14:51:32.401379924+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans","Elapsed":0.18}
+{"Time":"2026-04-02T14:51:32.401390724+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesEndpoint"}
+{"Time":"2026-04-02T14:51:32.401396216+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesEndpoint","Output":"=== RUN   TestGetActivitiesEndpoint\n"}
+{"Time":"2026-04-02T14:51:32.470699439+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesEndpoint","Output":"--- PASS: TestGetActivitiesEndpoint (0.07s)\n"}
+{"Time":"2026-04-02T14:51:32.470727921+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesEndpoint","Elapsed":0.07}
+{"Time":"2026-04-02T14:51:32.470733345+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateActivity"}
+{"Time":"2026-04-02T14:51:32.470735021+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateActivity","Output":"=== RUN   TestCreateActivity\n"}
+{"Time":"2026-04-02T14:51:32.532716272+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateActivity","Output":"--- PASS: TestCreateActivity (0.06s)\n"}
+{"Time":"2026-04-02T14:51:32.53275455+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateActivity","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:32.532761374+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesForUser"}
+{"Time":"2026-04-02T14:51:32.532764022+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesForUser","Output":"=== RUN   TestGetActivitiesForUser\n"}
+{"Time":"2026-04-02T14:51:32.657880691+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesForUser","Output":"--- PASS: TestGetActivitiesForUser (0.13s)\n"}
+{"Time":"2026-04-02T14:51:32.657935162+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesForUser","Elapsed":0.13}
+{"Time":"2026-04-02T14:51:32.657950237+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetContactsEndpoint"}
+{"Time":"2026-04-02T14:51:32.657958206+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetContactsEndpoint","Output":"=== RUN   TestGetContactsEndpoint\n"}
+{"Time":"2026-04-02T14:51:32.717082913+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetContactsEndpoint","Output":"--- PASS: TestGetContactsEndpoint (0.06s)\n"}
+{"Time":"2026-04-02T14:51:32.717107148+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetContactsEndpoint","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:32.717113043+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint"}
+{"Time":"2026-04-02T14:51:32.717114986+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint","Output":"=== RUN   TestAddContactEndpoint\n"}
+{"Time":"2026-04-02T14:51:32.820288277+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint","Output":"--- PASS: TestAddContactEndpoint (0.10s)\n"}
+{"Time":"2026-04-02T14:51:32.820322178+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint","Elapsed":0.1}
+{"Time":"2026-04-02T14:51:32.820331126+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_Unauthorized"}
+{"Time":"2026-04-02T14:51:32.820334719+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_Unauthorized","Output":"=== RUN   TestAddContactEndpoint_Unauthorized\n"}
+{"Time":"2026-04-02T14:51:32.820342451+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_Unauthorized","Output":"--- PASS: TestAddContactEndpoint_Unauthorized (0.00s)\n"}
+{"Time":"2026-04-02T14:51:32.820346931+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_Unauthorized","Elapsed":0}
+{"Time":"2026-04-02T14:51:32.820351085+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_InvalidBody"}
+{"Time":"2026-04-02T14:51:32.820353958+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_InvalidBody","Output":"=== RUN   TestAddContactEndpoint_InvalidBody\n"}
+{"Time":"2026-04-02T14:51:32.867537369+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_InvalidBody","Output":"--- PASS: TestAddContactEndpoint_InvalidBody (0.05s)\n"}
+{"Time":"2026-04-02T14:51:32.867562197+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_InvalidBody","Elapsed":0.05}
+{"Time":"2026-04-02T14:51:32.867568125+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_SelfContact"}
+{"Time":"2026-04-02T14:51:32.867580198+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_SelfContact","Output":"=== RUN   TestAddContactEndpoint_SelfContact\n"}
+{"Time":"2026-04-02T14:51:32.918178632+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_SelfContact","Output":"--- PASS: TestAddContactEndpoint_SelfContact (0.05s)\n"}
+{"Time":"2026-04-02T14:51:32.918203917+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_SelfContact","Elapsed":0.05}
+{"Time":"2026-04-02T14:51:32.918209551+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_DuplicateContact"}
+{"Time":"2026-04-02T14:51:32.918211266+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_DuplicateContact","Output":"=== RUN   TestAddContactEndpoint_DuplicateContact\n"}
+{"Time":"2026-04-02T14:51:33.030087548+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_DuplicateContact","Output":"2026/04/02 14:51:33 add contact error: UNIQUE constraint failed: contacts.owner_id, contacts.contact_id\n"}
+{"Time":"2026-04-02T14:51:33.030143694+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_DuplicateContact","Output":"--- PASS: TestAddContactEndpoint_DuplicateContact (0.11s)\n"}
+{"Time":"2026-04-02T14:51:33.0301557+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_DuplicateContact","Elapsed":0.11}
+{"Time":"2026-04-02T14:51:33.030166377+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_UserNotFound"}
+{"Time":"2026-04-02T14:51:33.030175471+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_UserNotFound","Output":"=== RUN   TestAddContactEndpoint_UserNotFound\n"}
+{"Time":"2026-04-02T14:51:33.094520537+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_UserNotFound","Output":"2026/04/02 14:51:33 add contact error: FOREIGN KEY constraint failed\n"}
+{"Time":"2026-04-02T14:51:33.094649007+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_UserNotFound","Output":"--- PASS: TestAddContactEndpoint_UserNotFound (0.06s)\n"}
+{"Time":"2026-04-02T14:51:33.094659765+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAddContactEndpoint_UserNotFound","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:33.094689679+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint"}
+{"Time":"2026-04-02T14:51:33.094695521+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint","Output":"=== RUN   TestRemoveContactEndpoint\n"}
+{"Time":"2026-04-02T14:51:33.222644564+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint","Output":"--- PASS: TestRemoveContactEndpoint (0.13s)\n"}
+{"Time":"2026-04-02T14:51:33.222699093+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint","Elapsed":0.13}
+{"Time":"2026-04-02T14:51:33.222713691+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_Unauthorized"}
+{"Time":"2026-04-02T14:51:33.222721738+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_Unauthorized","Output":"=== RUN   TestRemoveContactEndpoint_Unauthorized\n"}
+{"Time":"2026-04-02T14:51:33.222776486+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_Unauthorized","Output":"--- PASS: TestRemoveContactEndpoint_Unauthorized (0.00s)\n"}
+{"Time":"2026-04-02T14:51:33.222786511+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_Unauthorized","Elapsed":0}
+{"Time":"2026-04-02T14:51:33.22280896+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_InvalidBody"}
+{"Time":"2026-04-02T14:51:33.2228171+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_InvalidBody","Output":"=== RUN   TestRemoveContactEndpoint_InvalidBody\n"}
+{"Time":"2026-04-02T14:51:33.29000309+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_InvalidBody","Output":"--- PASS: TestRemoveContactEndpoint_InvalidBody (0.07s)\n"}
+{"Time":"2026-04-02T14:51:33.290076487+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_InvalidBody","Elapsed":0.07}
+{"Time":"2026-04-02T14:51:33.290094845+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAddContact"}
+{"Time":"2026-04-02T14:51:33.290105646+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContact","Output":"=== RUN   TestAddContact\n"}
+{"Time":"2026-04-02T14:51:33.418838571+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContact","Output":"--- PASS: TestAddContact (0.13s)\n"}
+{"Time":"2026-04-02T14:51:33.418914844+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAddContact","Elapsed":0.13}
+{"Time":"2026-04-02T14:51:33.418934247+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAddContact_Duplicate"}
+{"Time":"2026-04-02T14:51:33.418942784+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContact_Duplicate","Output":"=== RUN   TestAddContact_Duplicate\n"}
+{"Time":"2026-04-02T14:51:33.560773707+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAddContact_Duplicate","Output":"--- PASS: TestAddContact_Duplicate (0.14s)\n"}
+{"Time":"2026-04-02T14:51:33.560846569+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAddContact_Duplicate","Elapsed":0.14}
+{"Time":"2026-04-02T14:51:33.560863371+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContact"}
+{"Time":"2026-04-02T14:51:33.56087342+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContact","Output":"=== RUN   TestRemoveContact\n"}
+{"Time":"2026-04-02T14:51:33.703226358+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContact","Output":"--- PASS: TestRemoveContact (0.14s)\n"}
+{"Time":"2026-04-02T14:51:33.703278756+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContact","Elapsed":0.14}
+{"Time":"2026-04-02T14:51:33.703300387+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetContacts"}
+{"Time":"2026-04-02T14:51:33.70330597+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetContacts","Output":"=== RUN   TestGetContacts\n"}
+{"Time":"2026-04-02T14:51:33.898138076+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetContacts","Output":"--- PASS: TestGetContacts (0.19s)\n"}
+{"Time":"2026-04-02T14:51:33.898180952+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetContacts","Elapsed":0.19}
+{"Time":"2026-04-02T14:51:33.898192022+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestSignup"}
+{"Time":"2026-04-02T14:51:33.898198138+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestSignup","Output":"=== RUN   TestSignup\n"}
+{"Time":"2026-04-02T14:51:33.960934688+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestSignup","Output":"--- PASS: TestSignup (0.06s)\n"}
+{"Time":"2026-04-02T14:51:33.960982564+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestSignup","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:33.961008896+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestSignup_InvalidBody"}
+{"Time":"2026-04-02T14:51:33.961015643+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestSignup_InvalidBody","Output":"=== RUN   TestSignup_InvalidBody\n"}
+{"Time":"2026-04-02T14:51:33.961023257+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestSignup_InvalidBody","Output":"--- PASS: TestSignup_InvalidBody (0.00s)\n"}
+{"Time":"2026-04-02T14:51:33.961029469+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestSignup_InvalidBody","Elapsed":0}
+{"Time":"2026-04-02T14:51:33.961035479+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestSignup_PasswordTooShort"}
+{"Time":"2026-04-02T14:51:33.961040987+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestSignup_PasswordTooShort","Output":"=== RUN   TestSignup_PasswordTooShort\n"}
+{"Time":"2026-04-02T14:51:33.961047397+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestSignup_PasswordTooShort","Output":"2026/04/02 14:51:33 signup error: password must be at least 8 characters\n"}
+{"Time":"2026-04-02T14:51:33.961054365+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestSignup_PasswordTooShort","Output":"--- PASS: TestSignup_PasswordTooShort (0.00s)\n"}
+{"Time":"2026-04-02T14:51:33.961059832+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestSignup_PasswordTooShort","Elapsed":0}
+{"Time":"2026-04-02T14:51:33.961066243+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestSignup_DuplicateEmail"}
+{"Time":"2026-04-02T14:51:33.961070884+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestSignup_DuplicateEmail","Output":"=== RUN   TestSignup_DuplicateEmail\n"}
+{"Time":"2026-04-02T14:51:34.085450837+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestSignup_DuplicateEmail","Output":"2026/04/02 14:51:34 signup error: UNIQUE constraint failed: users.email\n"}
+{"Time":"2026-04-02T14:51:34.085534241+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestSignup_DuplicateEmail","Output":"--- PASS: TestSignup_DuplicateEmail (0.12s)\n"}
+{"Time":"2026-04-02T14:51:34.085543825+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestSignup_DuplicateEmail","Elapsed":0.12}
+{"Time":"2026-04-02T14:51:34.085553413+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreate"}
+{"Time":"2026-04-02T14:51:34.085573659+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreate","Output":"=== RUN   TestJwtCreate\n"}
+{"Time":"2026-04-02T14:51:34.213196721+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreate","Output":"--- PASS: TestJwtCreate (0.13s)\n"}
+{"Time":"2026-04-02T14:51:34.213241172+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreate","Elapsed":0.13}
+{"Time":"2026-04-02T14:51:34.213251097+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreate_InvalidBody"}
+{"Time":"2026-04-02T14:51:34.213255916+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreate_InvalidBody","Output":"=== RUN   TestJwtCreate_InvalidBody\n"}
+{"Time":"2026-04-02T14:51:34.213265325+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreate_InvalidBody","Output":"--- PASS: TestJwtCreate_InvalidBody (0.00s)\n"}
+{"Time":"2026-04-02T14:51:34.213296242+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreate_InvalidBody","Elapsed":0}
+{"Time":"2026-04-02T14:51:34.213301424+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreate_UserNotFound"}
+{"Time":"2026-04-02T14:51:34.213305362+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreate_UserNotFound","Output":"=== RUN   TestJwtCreate_UserNotFound\n"}
+{"Time":"2026-04-02T14:51:34.214038505+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreate_UserNotFound","Output":"--- PASS: TestJwtCreate_UserNotFound (0.00s)\n"}
+{"Time":"2026-04-02T14:51:34.214104004+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreate_UserNotFound","Elapsed":0}
+{"Time":"2026-04-02T14:51:34.214111999+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreate_InvalidPassword"}
+{"Time":"2026-04-02T14:51:34.214116341+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreate_InvalidPassword","Output":"=== RUN   TestJwtCreate_InvalidPassword\n"}
+{"Time":"2026-04-02T14:51:34.347209062+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreate_InvalidPassword","Output":"--- PASS: TestJwtCreate_InvalidPassword (0.13s)\n"}
+{"Time":"2026-04-02T14:51:34.347285808+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreate_InvalidPassword","Elapsed":0.13}
+{"Time":"2026-04-02T14:51:34.347299687+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreateService"}
+{"Time":"2026-04-02T14:51:34.347306124+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreateService","Output":"=== RUN   TestJwtCreateService\n"}
+{"Time":"2026-04-02T14:51:34.470870265+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreateService","Output":"--- PASS: TestJwtCreateService (0.12s)\n"}
+{"Time":"2026-04-02T14:51:34.470915394+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreateService","Elapsed":0.12}
+{"Time":"2026-04-02T14:51:34.470951658+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreateService_InvalidPassword"}
+{"Time":"2026-04-02T14:51:34.470957316+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreateService_InvalidPassword","Output":"=== RUN   TestJwtCreateService_InvalidPassword\n"}
+{"Time":"2026-04-02T14:51:34.531097093+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreateService_InvalidPassword","Output":"--- PASS: TestJwtCreateService_InvalidPassword (0.06s)\n"}
+{"Time":"2026-04-02T14:51:34.531148105+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreateService_InvalidPassword","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:34.531162817+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateUser"}
+{"Time":"2026-04-02T14:51:34.531169944+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateUser","Output":"=== RUN   TestCreateUser\n"}
+{"Time":"2026-04-02T14:51:34.592865759+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateUser","Output":"--- PASS: TestCreateUser (0.06s)\n"}
+{"Time":"2026-04-02T14:51:34.592932297+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateUser","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:34.592941822+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateUser_PasswordTooShort"}
+{"Time":"2026-04-02T14:51:34.592945707+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateUser_PasswordTooShort","Output":"=== RUN   TestCreateUser_PasswordTooShort\n"}
+{"Time":"2026-04-02T14:51:34.592950674+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateUser_PasswordTooShort","Output":"--- PASS: TestCreateUser_PasswordTooShort (0.00s)\n"}
+{"Time":"2026-04-02T14:51:34.592955547+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateUser_PasswordTooShort","Elapsed":0}
+{"Time":"2026-04-02T14:51:34.592960059+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateUser_DuplicateEmail"}
+{"Time":"2026-04-02T14:51:34.592973153+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateUser_DuplicateEmail","Output":"=== RUN   TestCreateUser_DuplicateEmail\n"}
+{"Time":"2026-04-02T14:51:34.723970188+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateUser_DuplicateEmail","Output":"--- PASS: TestCreateUser_DuplicateEmail (0.13s)\n"}
+{"Time":"2026-04-02T14:51:34.724001475+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateUser_DuplicateEmail","Elapsed":0.13}
+{"Time":"2026-04-02T14:51:34.724007086+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetUser"}
+{"Time":"2026-04-02T14:51:34.724009698+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUser","Output":"=== RUN   TestGetUser\n"}
+{"Time":"2026-04-02T14:51:34.788323942+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUser","Output":"--- PASS: TestGetUser (0.06s)\n"}
+{"Time":"2026-04-02T14:51:34.788368289+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetUser","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:34.788376161+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetUser_NotFound"}
+{"Time":"2026-04-02T14:51:34.788379471+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUser_NotFound","Output":"=== RUN   TestGetUser_NotFound\n"}
+{"Time":"2026-04-02T14:51:34.788389443+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUser_NotFound","Output":"--- PASS: TestGetUser_NotFound (0.00s)\n"}
+{"Time":"2026-04-02T14:51:34.788392888+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetUser_NotFound","Elapsed":0}
+{"Time":"2026-04-02T14:51:34.788396294+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetUserByEmail"}
+{"Time":"2026-04-02T14:51:34.788399028+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUserByEmail","Output":"=== RUN   TestGetUserByEmail\n"}
+{"Time":"2026-04-02T14:51:34.854660535+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUserByEmail","Output":"--- PASS: TestGetUserByEmail (0.07s)\n"}
+{"Time":"2026-04-02T14:51:34.854722737+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetUserByEmail","Elapsed":0.07}
+{"Time":"2026-04-02T14:51:34.854734479+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetUserByEmail_NotFound"}
+{"Time":"2026-04-02T14:51:34.854740005+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUserByEmail_NotFound","Output":"=== RUN   TestGetUserByEmail_NotFound\n"}
+{"Time":"2026-04-02T14:51:34.854747104+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUserByEmail_NotFound","Output":"--- PASS: TestGetUserByEmail_NotFound (0.00s)\n"}
+{"Time":"2026-04-02T14:51:34.854752547+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetUserByEmail_NotFound","Elapsed":0}
+{"Time":"2026-04-02T14:51:34.854762607+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetUsers"}
+{"Time":"2026-04-02T14:51:34.854767983+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUsers","Output":"=== RUN   TestGetUsers\n"}
+{"Time":"2026-04-02T14:51:34.980601095+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUsers","Output":"--- PASS: TestGetUsers (0.13s)\n"}
+{"Time":"2026-04-02T14:51:34.980672618+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetUsers","Elapsed":0.13}
+{"Time":"2026-04-02T14:51:34.980685676+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrders"}
+{"Time":"2026-04-02T14:51:34.98069079+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrders","Output":"=== RUN   TestGetOrders\n"}
+{"Time":"2026-04-02T14:51:35.112543453+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrders","Output":"--- PASS: TestGetOrders (0.13s)\n"}
+{"Time":"2026-04-02T14:51:35.112628249+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrders","Elapsed":0.13}
+{"Time":"2026-04-02T14:51:35.112640619+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrder"}
+{"Time":"2026-04-02T14:51:35.112646366+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrder","Output":"=== RUN   TestGetOrder\n"}
+{"Time":"2026-04-02T14:51:35.248038773+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrder","Output":"--- PASS: TestGetOrder (0.14s)\n"}
+{"Time":"2026-04-02T14:51:35.248098769+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrder","Elapsed":0.14}
+{"Time":"2026-04-02T14:51:35.248115931+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrder_NotFound"}
+{"Time":"2026-04-02T14:51:35.248124733+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrder_NotFound","Output":"=== RUN   TestGetOrder_NotFound\n"}
+{"Time":"2026-04-02T14:51:35.248136+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrder_NotFound","Output":"--- PASS: TestGetOrder_NotFound (0.00s)\n"}
+{"Time":"2026-04-02T14:51:35.248149499+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrder_NotFound","Elapsed":0}
+{"Time":"2026-04-02T14:51:35.248158126+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware"}
+{"Time":"2026-04-02T14:51:35.248164931+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware","Output":"=== RUN   TestAuthMiddleware\n"}
+{"Time":"2026-04-02T14:51:35.316615025+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware","Output":"--- PASS: TestAuthMiddleware (0.07s)\n"}
+{"Time":"2026-04-02T14:51:35.316870376+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware","Elapsed":0.07}
+{"Time":"2026-04-02T14:51:35.316891524+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_NoToken"}
+{"Time":"2026-04-02T14:51:35.31689626+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_NoToken","Output":"=== RUN   TestAuthMiddleware_NoToken\n"}
+{"Time":"2026-04-02T14:51:35.316903144+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_NoToken","Output":"--- PASS: TestAuthMiddleware_NoToken (0.00s)\n"}
+{"Time":"2026-04-02T14:51:35.316907235+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_NoToken","Elapsed":0}
+{"Time":"2026-04-02T14:51:35.316911385+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_InvalidToken"}
+{"Time":"2026-04-02T14:51:35.316915307+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_InvalidToken","Output":"=== RUN   TestAuthMiddleware_InvalidToken\n"}
+{"Time":"2026-04-02T14:51:35.316918631+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_InvalidToken","Output":"--- PASS: TestAuthMiddleware_InvalidToken (0.00s)\n"}
+{"Time":"2026-04-02T14:51:35.316921329+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_InvalidToken","Elapsed":0}
+{"Time":"2026-04-02T14:51:35.316924259+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_WrongSecret"}
+{"Time":"2026-04-02T14:51:35.316927924+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_WrongSecret","Output":"=== RUN   TestAuthMiddleware_WrongSecret\n"}
+{"Time":"2026-04-02T14:51:35.381705194+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_WrongSecret","Output":"--- PASS: TestAuthMiddleware_WrongSecret (0.07s)\n"}
+{"Time":"2026-04-02T14:51:35.381761334+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_WrongSecret","Elapsed":0.07}
+{"Time":"2026-04-02T14:51:35.381777884+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_AuthPath"}
+{"Time":"2026-04-02T14:51:35.38178756+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_AuthPath","Output":"=== RUN   TestAuthMiddleware_AuthPath\n"}
+{"Time":"2026-04-02T14:51:35.381809799+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_AuthPath","Output":"--- PASS: TestAuthMiddleware_AuthPath (0.00s)\n"}
+{"Time":"2026-04-02T14:51:35.381820415+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_AuthPath","Elapsed":0}
+{"Time":"2026-04-02T14:51:35.381829659+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_UserNotFound"}
+{"Time":"2026-04-02T14:51:35.3818404+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_UserNotFound","Output":"=== RUN   TestAuthMiddleware_UserNotFound\n"}
+{"Time":"2026-04-02T14:51:35.381851147+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_UserNotFound","Output":"--- PASS: TestAuthMiddleware_UserNotFound (0.00s)\n"}
+{"Time":"2026-04-02T14:51:35.381860223+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_UserNotFound","Elapsed":0}
+{"Time":"2026-04-02T14:51:35.381869281+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_BearerPrefix"}
+{"Time":"2026-04-02T14:51:35.38188104+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_BearerPrefix","Output":"=== RUN   TestAuthMiddleware_BearerPrefix\n"}
+{"Time":"2026-04-02T14:51:35.451574698+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_BearerPrefix","Output":"--- PASS: TestAuthMiddleware_BearerPrefix (0.07s)\n"}
+{"Time":"2026-04-02T14:51:35.451611988+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_BearerPrefix","Elapsed":0.07}
+{"Time":"2026-04-02T14:51:35.451627228+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDbStart"}
+{"Time":"2026-04-02T14:51:35.451636658+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDbStart","Output":"=== RUN   TestDbStart\n"}
+{"Time":"2026-04-02T14:51:35.451651021+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDbStart","Output":"--- PASS: TestDbStart (0.00s)\n"}
+{"Time":"2026-04-02T14:51:35.451653586+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDbStart","Elapsed":0}
+{"Time":"2026-04-02T14:51:35.451655672+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDbStart_ExistingFile"}
+{"Time":"2026-04-02T14:51:35.451657116+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDbStart_ExistingFile","Output":"=== RUN   TestDbStart_ExistingFile\n"}
+{"Time":"2026-04-02T14:51:35.451659801+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDbStart_ExistingFile","Output":"--- PASS: TestDbStart_ExistingFile (0.00s)\n"}
+{"Time":"2026-04-02T14:51:35.451661588+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDbStart_ExistingFile","Elapsed":0}
+{"Time":"2026-04-02T14:51:35.45166327+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDbStart_InvalidPath"}
+{"Time":"2026-04-02T14:51:35.451664638+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDbStart_InvalidPath","Output":"=== RUN   TestDbStart_InvalidPath\n"}
+{"Time":"2026-04-02T14:51:35.451680206+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDbStart_InvalidPath","Output":"--- PASS: TestDbStart_InvalidPath (0.00s)\n"}
+{"Time":"2026-04-02T14:51:35.451688767+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDbStart_InvalidPath","Elapsed":0}
+{"Time":"2026-04-02T14:51:35.451694179+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateTablesFromSchema"}
+{"Time":"2026-04-02T14:51:35.451698442+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateTablesFromSchema","Output":"=== RUN   TestCreateTablesFromSchema\n"}
+{"Time":"2026-04-02T14:51:35.452101727+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateTablesFromSchema","Output":"--- PASS: TestCreateTablesFromSchema (0.00s)\n"}
+{"Time":"2026-04-02T14:51:35.452110499+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateTablesFromSchema","Elapsed":0}
+{"Time":"2026-04-02T14:51:35.452113282+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateTablesFromSchema_InvalidPath"}
+{"Time":"2026-04-02T14:51:35.452115031+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateTablesFromSchema_InvalidPath","Output":"=== RUN   TestCreateTablesFromSchema_InvalidPath\n"}
+{"Time":"2026-04-02T14:51:35.452141828+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateTablesFromSchema_InvalidPath","Output":"--- PASS: TestCreateTablesFromSchema_InvalidPath (0.00s)\n"}
+{"Time":"2026-04-02T14:51:35.452143865+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateTablesFromSchema_InvalidPath","Elapsed":0}
+{"Time":"2026-04-02T14:51:35.452146981+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestHealthEndpoint"}
+{"Time":"2026-04-02T14:51:35.452157099+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestHealthEndpoint","Output":"=== RUN   TestHealthEndpoint\n"}
+{"Time":"2026-04-02T14:51:35.452159897+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestHealthEndpoint","Output":"--- PASS: TestHealthEndpoint (0.00s)\n"}
+{"Time":"2026-04-02T14:51:35.452161559+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestHealthEndpoint","Elapsed":0}
+{"Time":"2026-04-02T14:51:35.45216386+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestHealthEndpoint_NotFound"}
+{"Time":"2026-04-02T14:51:35.45216651+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestHealthEndpoint_NotFound","Output":"=== RUN   TestHealthEndpoint_NotFound\n"}
+{"Time":"2026-04-02T14:51:35.452197483+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestHealthEndpoint_NotFound","Output":"--- PASS: TestHealthEndpoint_NotFound (0.00s)\n"}
+{"Time":"2026-04-02T14:51:35.452205892+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestHealthEndpoint_NotFound","Elapsed":0}
+{"Time":"2026-04-02T14:51:35.452213119+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_ClaimsError"}
+{"Time":"2026-04-02T14:51:35.452222401+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_ClaimsError","Output":"=== RUN   TestAuthMiddleware_ClaimsError\n"}
+{"Time":"2026-04-02T14:51:35.517173056+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_ClaimsError","Output":"--- PASS: TestAuthMiddleware_ClaimsError (0.06s)\n"}
+{"Time":"2026-04-02T14:51:35.517206274+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_ClaimsError","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:35.517213661+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_InvalidClaimsType"}
+{"Time":"2026-04-02T14:51:35.517223182+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_InvalidClaimsType","Output":"=== RUN   TestAuthMiddleware_InvalidClaimsType\n"}
+{"Time":"2026-04-02T14:51:35.579152057+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_InvalidClaimsType","Output":"--- PASS: TestAuthMiddleware_InvalidClaimsType (0.06s)\n"}
+{"Time":"2026-04-02T14:51:35.57919352+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestAuthMiddleware_InvalidClaimsType","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:35.579203321+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_DBError"}
+{"Time":"2026-04-02T14:51:35.579206732+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_DBError","Output":"=== RUN   TestRemoveContactEndpoint_DBError\n"}
+{"Time":"2026-04-02T14:51:35.705625218+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_DBError","Output":"--- PASS: TestRemoveContactEndpoint_DBError (0.13s)\n"}
+{"Time":"2026-04-02T14:51:35.705683853+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_DBError","Elapsed":0.13}
+{"Time":"2026-04-02T14:51:35.705692334+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_ServiceError"}
+{"Time":"2026-04-02T14:51:35.705695616+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_ServiceError","Output":"=== RUN   TestCreateOrderEndpoint_ServiceError\n"}
+{"Time":"2026-04-02T14:51:35.832084399+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_ServiceError","Output":"2026/04/02 14:51:35 create order error: illegal base64 data at input byte 7\n"}
+{"Time":"2026-04-02T14:51:35.832174308+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_ServiceError","Output":"--- PASS: TestCreateOrderEndpoint_ServiceError (0.13s)\n"}
+{"Time":"2026-04-02T14:51:35.832190078+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderEndpoint_ServiceError","Elapsed":0.13}
+{"Time":"2026-04-02T14:51:35.832203331+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_ServiceError"}
+{"Time":"2026-04-02T14:51:35.832209067+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_ServiceError","Output":"=== RUN   TestCreateOrderScanEndpoint_ServiceError\n"}
+{"Time":"2026-04-02T14:51:36.021581497+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_ServiceError","Output":"2026/04/02 14:51:36 CreateOrderScanEndpoint: start - courier_id=1, order_id=1, condition=Good, photo_len=10\n"}
+{"Time":"2026-04-02T14:51:36.021606438+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_ServiceError","Output":"2026/04/02 14:51:36 CreateOrderScanEndpoint: calling CreateOrderScan for order_id=1 courier=1\n"}
+{"Time":"2026-04-02T14:51:36.021608974+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_ServiceError","Output":"2026/04/02 14:51:36 CreateOrderScan: start - order_id=1 courier_id=1 condition=Good lon=0.000000 lat=0.000000 comment_len=0 photo_b64_len=10\n"}
+{"Time":"2026-04-02T14:51:36.021610903+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_ServiceError","Output":"2026/04/02 14:51:36 decodeBase64: StdEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 7\n"}
+{"Time":"2026-04-02T14:51:36.021612409+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_ServiceError","Output":"2026/04/02 14:51:36 decodeBase64: RawStdEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 7\n"}
+{"Time":"2026-04-02T14:51:36.021618996+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_ServiceError","Output":"2026/04/02 14:51:36 decodeBase64: URLEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 7\n"}
+{"Time":"2026-04-02T14:51:36.021620518+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_ServiceError","Output":"2026/04/02 14:51:36 decodeBase64: RawURLEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 7\n"}
+{"Time":"2026-04-02T14:51:36.021621926+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_ServiceError","Output":"2026/04/02 14:51:36 CreateOrderScanEndpoint: create order scan error: base64 decode failed for order 1 courier 1\n"}
+{"Time":"2026-04-02T14:51:36.021642965+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_ServiceError","Output":"--- PASS: TestCreateOrderScanEndpoint_ServiceError (0.19s)\n"}
+{"Time":"2026-04-02T14:51:36.021684043+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_ServiceError","Elapsed":0.19}
+{"Time":"2026-04-02T14:51:36.021695204+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_ServiceError"}
+{"Time":"2026-04-02T14:51:36.021701705+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_ServiceError","Output":"=== RUN   TestUpdateOrderStatusEndpoint_ServiceError\n"}
+{"Time":"2026-04-02T14:51:36.155615978+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_ServiceError","Output":"--- PASS: TestUpdateOrderStatusEndpoint_ServiceError (0.13s)\n"}
+{"Time":"2026-04-02T14:51:36.155687415+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestUpdateOrderStatusEndpoint_ServiceError","Elapsed":0.13}
+{"Time":"2026-04-02T14:51:36.155694803+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestSignup_InternalError"}
+{"Time":"2026-04-02T14:51:36.155697613+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestSignup_InternalError","Output":"=== RUN   TestSignup_InternalError\n"}
+{"Time":"2026-04-02T14:51:36.156202664+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestSignup_InternalError","Output":"2026/04/02 14:51:36 signup error: password must be at least 8 characters\n"}
+{"Time":"2026-04-02T14:51:36.156227241+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestSignup_InternalError","Output":"--- PASS: TestSignup_InternalError (0.00s)\n"}
+{"Time":"2026-04-02T14:51:36.156231209+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestSignup_InternalError","Elapsed":0}
+{"Time":"2026-04-02T14:51:36.156235142+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreateService_SignError"}
+{"Time":"2026-04-02T14:51:36.156238209+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreateService_SignError","Output":"=== RUN   TestJwtCreateService_SignError\n"}
+{"Time":"2026-04-02T14:51:36.221886399+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreateService_SignError","Output":"--- PASS: TestJwtCreateService_SignError (0.07s)\n"}
+{"Time":"2026-04-02T14:51:36.22192274+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreateService_SignError","Elapsed":0.07}
+{"Time":"2026-04-02T14:51:36.221931664+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_DecodeBase64"}
+{"Time":"2026-04-02T14:51:36.221934644+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_DecodeBase64","Output":"=== RUN   TestCreateOrderScan_DecodeBase64\n"}
+{"Time":"2026-04-02T14:51:36.406685531+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_DecodeBase64","Output":"2026/04/02 14:51:36 CreateOrderScan: start - order_id=1 courier_id=1 condition=Good lon=1.234000 lat=5.678000 comment_len=0 photo_b64_len=38\n"}
+{"Time":"2026-04-02T14:51:36.406750096+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_DecodeBase64","Output":"2026/04/02 14:51:36 CreateOrderScan: decoded photo bytes=11 for order_id=1\n"}
+{"Time":"2026-04-02T14:51:36.406953641+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_DecodeBase64","Output":"2026/04/02 14:51:36 CreateOrderScan: DB insert succeeded id=1 order_id=1\n"}
+{"Time":"2026-04-02T14:51:36.407000653+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_DecodeBase64","Output":"--- PASS: TestCreateOrderScan_DecodeBase64 (0.19s)\n"}
+{"Time":"2026-04-02T14:51:36.407013631+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_DecodeBase64","Elapsed":0.19}
+{"Time":"2026-04-02T14:51:36.407022741+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_DataURL"}
+{"Time":"2026-04-02T14:51:36.407026503+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_DataURL","Output":"=== RUN   TestDecodeBase64_DataURL\n"}
+{"Time":"2026-04-02T14:51:36.407075259+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_DataURL","Output":"--- PASS: TestDecodeBase64_DataURL (0.00s)\n"}
+{"Time":"2026-04-02T14:51:36.407085093+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_DataURL","Elapsed":0}
+{"Time":"2026-04-02T14:51:36.407093812+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_EmptyString"}
+{"Time":"2026-04-02T14:51:36.407097778+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_EmptyString","Output":"=== RUN   TestDecodeBase64_EmptyString\n"}
+{"Time":"2026-04-02T14:51:36.407102998+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_EmptyString","Output":"--- PASS: TestDecodeBase64_EmptyString (0.00s)\n"}
+{"Time":"2026-04-02T14:51:36.407106999+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_EmptyString","Elapsed":0}
+{"Time":"2026-04-02T14:51:36.407111569+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_InvalidBase64"}
+{"Time":"2026-04-02T14:51:36.407115322+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_InvalidBase64","Output":"=== RUN   TestDecodeBase64_InvalidBase64\n"}
+{"Time":"2026-04-02T14:51:36.407120293+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_InvalidBase64","Output":"2026/04/02 14:51:36 decodeBase64: StdEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 0\n"}
+{"Time":"2026-04-02T14:51:36.407125451+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_InvalidBase64","Output":"2026/04/02 14:51:36 decodeBase64: RawStdEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 0\n"}
+{"Time":"2026-04-02T14:51:36.40712969+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_InvalidBase64","Output":"2026/04/02 14:51:36 decodeBase64: URLEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 0\n"}
+{"Time":"2026-04-02T14:51:36.40713356+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_InvalidBase64","Output":"2026/04/02 14:51:36 decodeBase64: RawURLEncoding failed for order_id=1 courier_id=1: illegal base64 data at input byte 0\n"}
+{"Time":"2026-04-02T14:51:36.407151211+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_InvalidBase64","Output":"--- PASS: TestDecodeBase64_InvalidBase64 (0.00s)\n"}
+{"Time":"2026-04-02T14:51:36.407155045+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_InvalidBase64","Elapsed":0}
+{"Time":"2026-04-02T14:51:36.407165252+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_URLEncoding"}
+{"Time":"2026-04-02T14:51:36.407169761+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_URLEncoding","Output":"=== RUN   TestDecodeBase64_URLEncoding\n"}
+{"Time":"2026-04-02T14:51:36.40717466+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_URLEncoding","Output":"--- PASS: TestDecodeBase64_URLEncoding (0.00s)\n"}
+{"Time":"2026-04-02T14:51:36.407178817+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_URLEncoding","Elapsed":0}
+{"Time":"2026-04-02T14:51:36.407184667+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrders_RowError"}
+{"Time":"2026-04-02T14:51:36.407188371+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrders_RowError","Output":"=== RUN   TestGetOrders_RowError\n"}
+{"Time":"2026-04-02T14:51:36.475737325+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrders_RowError","Output":"--- PASS: TestGetOrders_RowError (0.07s)\n"}
+{"Time":"2026-04-02T14:51:36.475776708+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrders_RowError","Elapsed":0.07}
+{"Time":"2026-04-02T14:51:36.475785706+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans_RowError"}
+{"Time":"2026-04-02T14:51:36.475789581+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans_RowError","Output":"=== RUN   TestGetOrderScans_RowError\n"}
+{"Time":"2026-04-02T14:51:36.67119131+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans_RowError","Output":"--- PASS: TestGetOrderScans_RowError (0.20s)\n"}
+{"Time":"2026-04-02T14:51:36.671224628+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans_RowError","Elapsed":0.2}
+{"Time":"2026-04-02T14:51:36.671232469+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans_RowError"}
+{"Time":"2026-04-02T14:51:36.671234687+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans_RowError","Output":"=== RUN   TestGetAllScans_RowError\n"}
+{"Time":"2026-04-02T14:51:36.67292121+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans_RowError","Output":"--- PASS: TestGetAllScans_RowError (0.00s)\n"}
+{"Time":"2026-04-02T14:51:36.672933909+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans_RowError","Elapsed":0}
+{"Time":"2026-04-02T14:51:36.672937625+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesForUser_RowError"}
+{"Time":"2026-04-02T14:51:36.672939628+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesForUser_RowError","Output":"=== RUN   TestGetActivitiesForUser_RowError\n"}
+{"Time":"2026-04-02T14:51:36.738381977+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesForUser_RowError","Output":"--- PASS: TestGetActivitiesForUser_RowError (0.07s)\n"}
+{"Time":"2026-04-02T14:51:36.738432289+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesForUser_RowError","Elapsed":0.07}
+{"Time":"2026-04-02T14:51:36.7384388+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetContacts_RowError"}
+{"Time":"2026-04-02T14:51:36.7384416+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetContacts_RowError","Output":"=== RUN   TestGetContacts_RowError\n"}
+{"Time":"2026-04-02T14:51:36.802868829+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetContacts_RowError","Output":"--- PASS: TestGetContacts_RowError (0.06s)\n"}
+{"Time":"2026-04-02T14:51:36.802913673+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetContacts_RowError","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:36.802921318+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_EmptyPhoto"}
+{"Time":"2026-04-02T14:51:36.802927327+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_EmptyPhoto","Output":"=== RUN   TestCreateOrderScan_EmptyPhoto\n"}
+{"Time":"2026-04-02T14:51:36.954530783+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_EmptyPhoto","Output":"2026/04/02 14:51:36 CreateOrderScan: start - order_id=1 courier_id=1 condition=Good lon=0.000000 lat=0.000000 comment_len=0 photo_b64_len=0\n"}
+{"Time":"2026-04-02T14:51:36.954566559+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_EmptyPhoto","Output":"--- PASS: TestCreateOrderScan_EmptyPhoto (0.15s)\n"}
+{"Time":"2026-04-02T14:51:36.954571526+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScan_EmptyPhoto","Elapsed":0.15}
+{"Time":"2026-04-02T14:51:36.954577665+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_UpdateStatusError"}
+{"Time":"2026-04-02T14:51:36.954579071+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_UpdateStatusError","Output":"=== RUN   TestCreateOrderScanEndpoint_UpdateStatusError\n"}
+{"Time":"2026-04-02T14:51:37.108400994+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_UpdateStatusError","Output":"2026/04/02 14:51:37 CreateOrderScanEndpoint: start - courier_id=1, order_id=1, condition=Good, photo_len=16\n"}
+{"Time":"2026-04-02T14:51:37.10843125+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_UpdateStatusError","Output":"2026/04/02 14:51:37 CreateOrderScanEndpoint: calling CreateOrderScan for order_id=1 courier=1\n"}
+{"Time":"2026-04-02T14:51:37.108433849+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_UpdateStatusError","Output":"2026/04/02 14:51:37 CreateOrderScan: start - order_id=1 courier_id=1 condition=Good lon=0.000000 lat=0.000000 comment_len=0 photo_b64_len=16\n"}
+{"Time":"2026-04-02T14:51:37.108439514+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_UpdateStatusError","Output":"2026/04/02 14:51:37 CreateOrderScan: decoded photo bytes=11 for order_id=1\n"}
+{"Time":"2026-04-02T14:51:37.108442517+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_UpdateStatusError","Output":"2026/04/02 14:51:37 CreateOrderScan: DB insert succeeded id=1 order_id=1\n"}
+{"Time":"2026-04-02T14:51:37.108444118+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_UpdateStatusError","Output":"2026/04/02 14:51:37 CreateOrderScanEndpoint: CreateOrderScan succeeded for order_id=1 courier=1\n"}
+{"Time":"2026-04-02T14:51:37.108464858+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_UpdateStatusError","Output":"--- PASS: TestCreateOrderScanEndpoint_UpdateStatusError (0.15s)\n"}
+{"Time":"2026-04-02T14:51:37.108467992+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderScanEndpoint_UpdateStatusError","Elapsed":0.15}
+{"Time":"2026-04-02T14:51:37.108472396+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderService_WithPhotoDataURL"}
+{"Time":"2026-04-02T14:51:37.108479491+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderService_WithPhotoDataURL","Output":"=== RUN   TestCreateOrderService_WithPhotoDataURL\n"}
+{"Time":"2026-04-02T14:51:37.244054299+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderService_WithPhotoDataURL","Output":"--- PASS: TestCreateOrderService_WithPhotoDataURL (0.14s)\n"}
+{"Time":"2026-04-02T14:51:37.244096591+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateOrderService_WithPhotoDataURL","Elapsed":0.14}
+{"Time":"2026-04-02T14:51:37.244103545+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetUser_InvalidId"}
+{"Time":"2026-04-02T14:51:37.244110741+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUser_InvalidId","Output":"=== RUN   TestGetUser_InvalidId\n"}
+{"Time":"2026-04-02T14:51:37.247014511+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUser_InvalidId","Output":"--- PASS: TestGetUser_InvalidId (0.00s)\n"}
+{"Time":"2026-04-02T14:51:37.247037353+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetUser_InvalidId","Elapsed":0}
+{"Time":"2026-04-02T14:51:37.247042306+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrder_InvalidId"}
+{"Time":"2026-04-02T14:51:37.247044891+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrder_InvalidId","Output":"=== RUN   TestGetOrder_InvalidId\n"}
+{"Time":"2026-04-02T14:51:37.247380034+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrder_InvalidId","Output":"--- PASS: TestGetOrder_InvalidId (0.00s)\n"}
+{"Time":"2026-04-02T14:51:37.247390131+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrder_InvalidId","Elapsed":0}
+{"Time":"2026-04-02T14:51:37.247393757+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesForUser_Multiple"}
+{"Time":"2026-04-02T14:51:37.247396288+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesForUser_Multiple","Output":"=== RUN   TestGetActivitiesForUser_Multiple\n"}
+{"Time":"2026-04-02T14:51:37.380679431+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesForUser_Multiple","Output":"--- PASS: TestGetActivitiesForUser_Multiple (0.13s)\n"}
+{"Time":"2026-04-02T14:51:37.380720411+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesForUser_Multiple","Elapsed":0.13}
+{"Time":"2026-04-02T14:51:37.380732885+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans_Multiple"}
+{"Time":"2026-04-02T14:51:37.380738191+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans_Multiple","Output":"=== RUN   TestGetAllScans_Multiple\n"}
+{"Time":"2026-04-02T14:51:37.642076143+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans_Multiple","Output":"2026/04/02 14:51:37 CreateOrderScan: start - order_id=1 courier_id=1 condition=Good lon=0.000000 lat=0.000000 comment_len=0 photo_b64_len=16\n"}
+{"Time":"2026-04-02T14:51:37.642123441+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans_Multiple","Output":"2026/04/02 14:51:37 CreateOrderScan: decoded photo bytes=11 for order_id=1\n"}
+{"Time":"2026-04-02T14:51:37.642134826+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans_Multiple","Output":"2026/04/02 14:51:37 CreateOrderScan: DB insert succeeded id=1 order_id=1\n"}
+{"Time":"2026-04-02T14:51:37.642140403+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans_Multiple","Output":"2026/04/02 14:51:37 CreateOrderScan: start - order_id=2 courier_id=2 condition=Damaged lon=0.000000 lat=0.000000 comment_len=0 photo_b64_len=16\n"}
+{"Time":"2026-04-02T14:51:37.642181146+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans_Multiple","Output":"2026/04/02 14:51:37 CreateOrderScan: decoded photo bytes=11 for order_id=2\n"}
+{"Time":"2026-04-02T14:51:37.642186149+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans_Multiple","Output":"2026/04/02 14:51:37 CreateOrderScan: DB insert succeeded id=2 order_id=2\n"}
+{"Time":"2026-04-02T14:51:37.642238745+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans_Multiple","Output":"--- PASS: TestGetAllScans_Multiple (0.26s)\n"}
+{"Time":"2026-04-02T14:51:37.642247533+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScans_Multiple","Elapsed":0.26}
+{"Time":"2026-04-02T14:51:37.642257639+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_NotFound"}
+{"Time":"2026-04-02T14:51:37.642263702+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_NotFound","Output":"=== RUN   TestRemoveContactEndpoint_NotFound\n"}
+{"Time":"2026-04-02T14:51:37.771177674+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_NotFound","Output":"--- PASS: TestRemoveContactEndpoint_NotFound (0.13s)\n"}
+{"Time":"2026-04-02T14:51:37.771209614+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_NotFound","Elapsed":0.13}
+{"Time":"2026-04-02T14:51:37.771214441+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreateService_PasswordTooShort"}
+{"Time":"2026-04-02T14:51:37.771216405+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreateService_PasswordTooShort","Output":"=== RUN   TestJwtCreateService_PasswordTooShort\n"}
+{"Time":"2026-04-02T14:51:37.832740946+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreateService_PasswordTooShort","Output":"--- PASS: TestJwtCreateService_PasswordTooShort (0.06s)\n"}
+{"Time":"2026-04-02T14:51:37.832793847+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestJwtCreateService_PasswordTooShort","Elapsed":0.06}
+{"Time":"2026-04-02T14:51:37.832805247+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetUsers_Multiple"}
+{"Time":"2026-04-02T14:51:37.832810326+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUsers_Multiple","Output":"=== RUN   TestGetUsers_Multiple\n"}
+{"Time":"2026-04-02T14:51:38.022292146+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetUsers_Multiple","Output":"--- PASS: TestGetUsers_Multiple (0.19s)\n"}
+{"Time":"2026-04-02T14:51:38.022324436+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetUsers_Multiple","Elapsed":0.19}
+{"Time":"2026-04-02T14:51:38.022330762+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrders_Multiple"}
+{"Time":"2026-04-02T14:51:38.022332837+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrders_Multiple","Output":"=== RUN   TestGetOrders_Multiple\n"}
+{"Time":"2026-04-02T14:51:38.211685335+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrders_Multiple","Output":"--- PASS: TestGetOrders_Multiple (0.19s)\n"}
+{"Time":"2026-04-02T14:51:38.211717302+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrders_Multiple","Elapsed":0.19}
+{"Time":"2026-04-02T14:51:38.211723121+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans_Multiple"}
+{"Time":"2026-04-02T14:51:38.211725652+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans_Multiple","Output":"=== RUN   TestGetOrderScans_Multiple\n"}
+{"Time":"2026-04-02T14:51:38.405848587+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans_Multiple","Output":"2026/04/02 14:51:38 CreateOrderScan: start - order_id=1 courier_id=1 condition=Good lon=0.000000 lat=0.000000 comment_len=6 photo_b64_len=16\n"}
+{"Time":"2026-04-02T14:51:38.40588553+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans_Multiple","Output":"2026/04/02 14:51:38 CreateOrderScan: decoded photo bytes=11 for order_id=1\n"}
+{"Time":"2026-04-02T14:51:38.405890209+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans_Multiple","Output":"2026/04/02 14:51:38 CreateOrderScan: DB insert succeeded id=1 order_id=1\n"}
+{"Time":"2026-04-02T14:51:38.405892952+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans_Multiple","Output":"2026/04/02 14:51:38 CreateOrderScan: start - order_id=1 courier_id=1 condition=Damaged lon=0.000000 lat=0.000000 comment_len=6 photo_b64_len=16\n"}
+{"Time":"2026-04-02T14:51:38.405895453+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans_Multiple","Output":"2026/04/02 14:51:38 CreateOrderScan: decoded photo bytes=11 for order_id=1\n"}
+{"Time":"2026-04-02T14:51:38.405897868+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans_Multiple","Output":"2026/04/02 14:51:38 CreateOrderScan: DB insert succeeded id=2 order_id=1\n"}
+{"Time":"2026-04-02T14:51:38.405906282+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans_Multiple","Output":"--- PASS: TestGetOrderScans_Multiple (0.19s)\n"}
+{"Time":"2026-04-02T14:51:38.405909272+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrderScans_Multiple","Elapsed":0.19}
+{"Time":"2026-04-02T14:51:38.405913847+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesForUser_Empty"}
+{"Time":"2026-04-02T14:51:38.405916+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesForUser_Empty","Output":"=== RUN   TestGetActivitiesForUser_Empty\n"}
+{"Time":"2026-04-02T14:51:38.474350562+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesForUser_Empty","Output":"--- PASS: TestGetActivitiesForUser_Empty (0.07s)\n"}
+{"Time":"2026-04-02T14:51:38.474380896+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesForUser_Empty","Elapsed":0.07}
+{"Time":"2026-04-02T14:51:38.47438802+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetContacts_Multiple"}
+{"Time":"2026-04-02T14:51:38.474391162+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetContacts_Multiple","Output":"=== RUN   TestGetContacts_Multiple\n"}
+{"Time":"2026-04-02T14:51:38.719827964+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetContacts_Multiple","Output":"--- PASS: TestGetContacts_Multiple (0.25s)\n"}
+{"Time":"2026-04-02T14:51:38.719889238+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetContacts_Multiple","Elapsed":0.25}
+{"Time":"2026-04-02T14:51:38.719893897+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetOrdersList_Multiple"}
+{"Time":"2026-04-02T14:51:38.719895764+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrdersList_Multiple","Output":"=== RUN   TestGetOrdersList_Multiple\n"}
+{"Time":"2026-04-02T14:51:38.917908472+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetOrdersList_Multiple","Output":"--- PASS: TestGetOrdersList_Multiple (0.20s)\n"}
+{"Time":"2026-04-02T14:51:38.917947203+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetOrdersList_Multiple","Elapsed":0.2}
+{"Time":"2026-04-02T14:51:38.917954338+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScansEndpoint_Multiple"}
+{"Time":"2026-04-02T14:51:38.917965366+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScansEndpoint_Multiple","Output":"=== RUN   TestGetAllScansEndpoint_Multiple\n"}
+{"Time":"2026-04-02T14:51:39.110857889+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScansEndpoint_Multiple","Output":"2026/04/02 14:51:39 CreateOrderScan: start - order_id=1 courier_id=1 condition=Good lon=0.000000 lat=0.000000 comment_len=0 photo_b64_len=16\n"}
+{"Time":"2026-04-02T14:51:39.110897384+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScansEndpoint_Multiple","Output":"2026/04/02 14:51:39 CreateOrderScan: decoded photo bytes=11 for order_id=1\n"}
+{"Time":"2026-04-02T14:51:39.110901992+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScansEndpoint_Multiple","Output":"2026/04/02 14:51:39 CreateOrderScan: DB insert succeeded id=1 order_id=1\n"}
+{"Time":"2026-04-02T14:51:39.110907379+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScansEndpoint_Multiple","Output":"2026/04/02 14:51:39 CreateOrderScan: start - order_id=2 courier_id=1 condition=Damaged lon=0.000000 lat=0.000000 comment_len=0 photo_b64_len=16\n"}
+{"Time":"2026-04-02T14:51:39.110910092+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScansEndpoint_Multiple","Output":"2026/04/02 14:51:39 CreateOrderScan: decoded photo bytes=11 for order_id=2\n"}
+{"Time":"2026-04-02T14:51:39.110912662+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScansEndpoint_Multiple","Output":"2026/04/02 14:51:39 CreateOrderScan: DB insert succeeded id=2 order_id=2\n"}
+{"Time":"2026-04-02T14:51:39.111153699+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScansEndpoint_Multiple","Output":"--- PASS: TestGetAllScansEndpoint_Multiple (0.19s)\n"}
+{"Time":"2026-04-02T14:51:39.111174379+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetAllScansEndpoint_Multiple","Elapsed":0.19}
+{"Time":"2026-04-02T14:51:39.111185407+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesEndpoint_Multiple"}
+{"Time":"2026-04-02T14:51:39.111188113+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesEndpoint_Multiple","Output":"=== RUN   TestGetActivitiesEndpoint_Multiple\n"}
+{"Time":"2026-04-02T14:51:39.180164392+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesEndpoint_Multiple","Output":"--- PASS: TestGetActivitiesEndpoint_Multiple (0.07s)\n"}
+{"Time":"2026-04-02T14:51:39.18020775+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetActivitiesEndpoint_Multiple","Elapsed":0.07}
+{"Time":"2026-04-02T14:51:39.180215857+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestGetContactsEndpoint_Multiple"}
+{"Time":"2026-04-02T14:51:39.180219241+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetContactsEndpoint_Multiple","Output":"=== RUN   TestGetContactsEndpoint_Multiple\n"}
+{"Time":"2026-04-02T14:51:39.372242851+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestGetContactsEndpoint_Multiple","Output":"--- PASS: TestGetContactsEndpoint_Multiple (0.19s)\n"}
+{"Time":"2026-04-02T14:51:39.372293227+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestGetContactsEndpoint_Multiple","Elapsed":0.19}
+{"Time":"2026-04-02T14:51:39.37229773+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestCreateActivity_Multiple"}
+{"Time":"2026-04-02T14:51:39.372299411+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateActivity_Multiple","Output":"=== RUN   TestCreateActivity_Multiple\n"}
+{"Time":"2026-04-02T14:51:39.440076517+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestCreateActivity_Multiple","Output":"--- PASS: TestCreateActivity_Multiple (0.07s)\n"}
+{"Time":"2026-04-02T14:51:39.440131947+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestCreateActivity_Multiple","Elapsed":0.07}
+{"Time":"2026-04-02T14:51:39.440141988+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_Success"}
+{"Time":"2026-04-02T14:51:39.440154348+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_Success","Output":"=== RUN   TestRemoveContactEndpoint_Success\n"}
+{"Time":"2026-04-02T14:51:39.562773356+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_Success","Output":"--- PASS: TestRemoveContactEndpoint_Success (0.12s)\n"}
+{"Time":"2026-04-02T14:51:39.562810522+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestRemoveContactEndpoint_Success","Elapsed":0.12}
+{"Time":"2026-04-02T14:51:39.562816734+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_WithCarriageReturn"}
+{"Time":"2026-04-02T14:51:39.562819056+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_WithCarriageReturn","Output":"=== RUN   TestDecodeBase64_WithCarriageReturn\n"}
+{"Time":"2026-04-02T14:51:39.562822379+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_WithCarriageReturn","Output":"--- PASS: TestDecodeBase64_WithCarriageReturn (0.00s)\n"}
+{"Time":"2026-04-02T14:51:39.562829835+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_WithCarriageReturn","Elapsed":0}
+{"Time":"2026-04-02T14:51:39.562832266+02:00","Action":"run","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_WithSpace"}
+{"Time":"2026-04-02T14:51:39.562834985+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_WithSpace","Output":"=== RUN   TestDecodeBase64_WithSpace\n"}
+{"Time":"2026-04-02T14:51:39.562837994+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_WithSpace","Output":"--- PASS: TestDecodeBase64_WithSpace (0.00s)\n"}
+{"Time":"2026-04-02T14:51:39.562840436+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Test":"TestDecodeBase64_WithSpace","Elapsed":0}
+{"Time":"2026-04-02T14:51:39.562842643+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Output":"PASS\n"}
+{"Time":"2026-04-02T14:51:39.564084784+02:00","Action":"output","Package":"github.com/2IS70-App-Development","Output":"ok  \tgithub.com/2IS70-App-Development\t10.956s\n"}
+{"Time":"2026-04-02T14:51:39.564163405+02:00","Action":"pass","Package":"github.com/2IS70-App-Development","Elapsed":10.957}
